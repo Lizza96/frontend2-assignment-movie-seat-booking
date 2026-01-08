@@ -24,8 +24,6 @@ function displayTotalCost() {
 }
 
 function clickSeat(seatElement) {
-  console.log(seatElement);
-
   seatElement.classList.toggle('selected');
 
   if (seatElement.classList.contains('selected')) {
