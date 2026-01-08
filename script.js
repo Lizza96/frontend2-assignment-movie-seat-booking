@@ -3,8 +3,6 @@ const avaliableSeats = document.querySelectorAll(
   '.seat:not(.selected):not(.occupied)'
 );
 
-console.log(avaliableSeats);
-
 //event listeners
 for (const seat of avaliableSeats) {
   seat.addEventListener('click', () => selectSeat(seat));
@@ -12,6 +10,17 @@ for (const seat of avaliableSeats) {
 
 //functions
 function selectSeat(seatElement) {
-  console.log(seatElement);
-  seatElement.classList.add('selected');
+  seatElement.classList.toggle('selected');
+
+  //byter ut click eventlistener till deselectSeat
+  seatElement.removeEventListener('click', () => selectSeat(seatElement));
+  seatElement.addEventListener('click', () => deselectSeat(seatElement));
+}
+
+function deselectSeat(seatElement) {
+  seatElement.classList.toggle('selected');
+
+  //byter ut click eventlistener till selectSeat
+  seatElement.removeEventListener('click', () => deselectSeat(seatElement));
+  seatElement.addEventListener('click', () => selectSeat(seatElement));
 }
