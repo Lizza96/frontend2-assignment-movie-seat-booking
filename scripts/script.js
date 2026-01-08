@@ -5,22 +5,10 @@ const avaliableSeats = document.querySelectorAll(
 
 //event listeners
 for (const seat of avaliableSeats) {
-  seat.addEventListener('click', () => selectSeat(seat));
+  seat.addEventListener('click', () => clickSeat(seat));
 }
 
 //functions
-function selectSeat(seatElement) {
+function clickSeat(seatElement) {
   seatElement.classList.toggle('selected');
-
-  //byter ut click eventlistener till deselectSeat
-  seatElement.removeEventListener('click', () => selectSeat(seatElement));
-  seatElement.addEventListener('click', () => deselectSeat(seatElement));
-}
-
-function deselectSeat(seatElement) {
-  seatElement.classList.toggle('selected');
-
-  //byter ut click eventlistener till selectSeat
-  seatElement.removeEventListener('click', () => deselectSeat(seatElement));
-  seatElement.addEventListener('click', () => selectSeat(seatElement));
 }
