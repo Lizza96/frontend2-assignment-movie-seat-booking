@@ -12,11 +12,17 @@ const totalElement = document.querySelector('#total');
 const movieSelect = document.querySelector('#movie');
 
 //event listeners
+movieSelect.addEventListener('change', displayTotalCost);
+
 for (const seat of avaliableSeats) {
   seat.addEventListener('click', () => clickSeat(seat));
 }
 
 //functions
+function displayTotalCost() {
+  totalElement.innerText = selectedSeatsCount * Number(movieSelect.value);
+}
+
 function clickSeat(seatElement) {
   console.log(seatElement);
 
@@ -29,5 +35,5 @@ function clickSeat(seatElement) {
   }
 
   countElement.innerText = selectedSeatsCount;
-  totalElement.innerText = selectedSeatsCount * Number(movieSelect.value);
+  displayTotalCost();
 }
