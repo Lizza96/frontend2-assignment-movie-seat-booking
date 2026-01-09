@@ -1,4 +1,4 @@
-//Variables
+// variables
 const avaliableSeats = document.querySelectorAll(
   '.seat:not(.selected):not(.occupied)'
 );
@@ -6,19 +6,11 @@ const avaliableSeats = document.querySelectorAll(
 let selectedSeatsCount = 0;
 const countElement = document.querySelector('#count');
 
-let totalCost = 0;
 const totalElement = document.querySelector('#total');
 
 const movieSelect = document.querySelector('#movie');
 
-//event listeners
-movieSelect.addEventListener('change', displayTotalCost);
-
-for (const seat of avaliableSeats) {
-  seat.addEventListener('click', () => clickSeat(seat));
-}
-
-//functions
+// functions
 function displayTotalCost() {
   totalElement.innerText = selectedSeatsCount * Number(movieSelect.value);
 }
@@ -35,3 +27,10 @@ function clickSeat(seatElement) {
   countElement.innerText = selectedSeatsCount;
   displayTotalCost();
 }
+
+// event listeners
+movieSelect.addEventListener('change', displayTotalCost);
+
+avaliableSeats.forEach((seat) => {
+  seat.addEventListener('click', () => clickSeat(seat));
+});
