@@ -19,7 +19,7 @@ await displaySelectOptions();
 // functions
 async function displaySelectOptions() {
   // Hämta från json-server-databasen
-  const response = await fetch('http://localhost:3000/movies');
+  const response = await fetch(dbUrl);
 
   const data = await response.json();
 
