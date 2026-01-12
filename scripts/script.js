@@ -1,4 +1,6 @@
 // variables
+const dbUrl = 'http://localhost:3000/movies';
+
 const avaliableSeats = document.querySelectorAll(
   '.seat:not(.selected):not(.occupied)'
 );
@@ -13,7 +15,16 @@ const movieSelect = document.querySelector('#movie');
 displaySelectOptions();
 
 // functions
-async function displaySelectOptions() {}
+async function displaySelectOptions() {
+  // Hämta från json-server-databasen
+  const response = await fetch('http://localhost:3000/movies');
+
+  const data = await response.json();
+
+  console.log(data);
+
+  // Skapa en option för varje film
+}
 
 function displayTotalCost() {
   totalElement.innerText = selectedSeatsCount * Number(movieSelect.value);
