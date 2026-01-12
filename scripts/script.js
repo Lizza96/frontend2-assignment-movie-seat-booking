@@ -25,6 +25,7 @@ async function displaySelectOptions() {
 
   console.log(data);
 
+  const movies = data.map((movie) => new Movie(movie.name, movie.price));
   // Skapa en option för varje film
 }
 
