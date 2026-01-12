@@ -14,7 +14,7 @@ const totalElement = document.querySelector('#total');
 
 const movieSelect = document.querySelector('#movie');
 
-displaySelectOptions();
+await displaySelectOptions();
 
 // functions
 async function displaySelectOptions() {
@@ -25,8 +25,16 @@ async function displaySelectOptions() {
 
   console.log(data);
 
-  const movies = data.map((movie) => new Movie(movie.name, movie.price));
-  // Skapa en option för varje film
+  const movies = data.map((movie) => new Movie(movie.title, movie.price));
+
+  for (const movie of movies) {
+    const optionsElement = document.createElement('option');
+
+    optionsElement.innerText = `${movie.name} (${movie.price} kr)`;
+    optionsElement.value = movie.price;
+
+    movieSelect.append(optionsElement);
+  }
 }
 
 function displayTotalCost() {
