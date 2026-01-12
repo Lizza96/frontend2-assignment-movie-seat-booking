@@ -19,8 +19,6 @@ async function displaySelectOptions() {
   // Hämta från json-server-databasen
   const movies = await loadMovies();
 
-  console.log(movies);
-
   for (const movie of movies) {
     const optionsElement = document.createElement('option');
 
