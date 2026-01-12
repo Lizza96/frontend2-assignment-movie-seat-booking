@@ -1,3 +1,5 @@
+import Movie from './Movie.js';
+
 // variables
 const dbUrl = 'http://localhost:3000/movies';
 
