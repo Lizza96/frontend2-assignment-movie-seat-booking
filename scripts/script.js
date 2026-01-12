@@ -10,11 +10,6 @@ const totalElement = document.querySelector('#total');
 
 const movieSelect = document.querySelector('#movie');
 
-displaySelectOptions();
-
-// functions
-function displaySelectOptions() {}
-
 function displayTotalCost() {
   totalElement.innerText = selectedSeatsCount * Number(movieSelect.value);
 }
