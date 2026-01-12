@@ -1,8 +1,6 @@
-import Movie from './Movie.js';
+import loadMovies from './movie.js';
 
 // variables
-const dbUrl = 'http://localhost:3000/movies';
-
 const avaliableSeats = document.querySelectorAll(
   '.seat:not(.selected):not(.occupied)'
 );
@@ -19,13 +17,9 @@ await displaySelectOptions();
 // functions
 async function displaySelectOptions() {
   // Hämta från json-server-databasen
-  const response = await fetch(dbUrl);
+  const movies = await loadMovies();
 
-  const data = await response.json();
-
-  console.log(data);
-
-  const movies = data.map((movie) => new Movie(movie.title, movie.price));
+  console.log(movies);
 
   for (const movie of movies) {
     const optionsElement = document.createElement('option');
