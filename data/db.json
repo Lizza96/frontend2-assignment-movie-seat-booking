@@ -1,0 +1,44 @@
+{
+  "movies": [
+    {
+      "Title": "The Lion King",
+      "Year": "2019",
+      "Price": 100
+    },
+    {
+      "Title": "Mowgli: Legend of the Jungle",
+      "Year": "2018",
+      "Price": 40
+    },
+    {
+      "Title": "Doctor Strange",
+      "Year": "2016",
+      "Price": 120
+    },
+    {
+      "Title": "John Wick",
+      "Year": "2014",
+      "Price": 60
+    },
+    {
+      "Title": "Fast and furious 6",
+      "Year": "2013",
+      "Price": 100
+    },
+    {
+      "Title": "The mummy returns",
+      "Year": "2001",
+      "Price": 50
+    },
+    {
+      "Title": "Jumanji: Welcome to the Jungle",
+      "Year": "2017",
+      "Price": 70
+    },
+    {
+      "Title": "Rampage",
+      "Year": "2018",
+      "Price": 40
+    }
+  ]
+}
