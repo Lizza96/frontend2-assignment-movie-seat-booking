@@ -1,6 +1,6 @@
 const countElement = document.querySelector('#count');
 const totalElement = document.querySelector('#total');
-const movieSelect = document.querySelector('#movie');
+export const movieSelect = document.querySelector('#movie');
 
 export function displaySeatCount(count) {
   countElement.innerText = count;
