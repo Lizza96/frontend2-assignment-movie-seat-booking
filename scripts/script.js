@@ -16,7 +16,6 @@ await displaySelectOptions();
 
 // functions
 async function displaySelectOptions() {
-  // Hämta från json-server-databasen
   const movies = await loadMovies();
 
   for (const movie of movies) {
