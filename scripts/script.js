@@ -12,10 +12,10 @@ const totalElement = document.querySelector('#total');
 
 const movieSelect = document.querySelector('#movie');
 
-await displaySelectOptions();
+await displayMovieOptions();
 
 // functions
-async function displaySelectOptions() {
+async function displayMovieOptions() {
   const movies = await loadMovies();
 
   for (const movie of movies) {
