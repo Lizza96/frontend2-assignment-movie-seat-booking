@@ -1,3 +1,5 @@
+import loadMovies from './movie.js';
+
 // variables
 const avaliableSeats = document.querySelectorAll(
   '.seat:not(.selected):not(.occupied)'
@@ -9,6 +11,22 @@ const countElement = document.querySelector('#count');
 const totalElement = document.querySelector('#total');
 
 const movieSelect = document.querySelector('#movie');
+
+await displayMovieOptions();
+
+// functions
+async function displayMovieOptions() {
+  const movies = await loadMovies();
+
+  for (const movie of movies) {
+    const optionsElement = document.createElement('option');
+
+    optionsElement.innerText = `${movie.name} (${movie.price} kr)`;
+    optionsElement.value = movie.price;
+
+    movieSelect.append(optionsElement);
+  }
+}
 
 function displayTotalCost() {
   totalElement.innerText = selectedSeatsCount * Number(movieSelect.value);
