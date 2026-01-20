@@ -1,4 +1,4 @@
-class Movie {
+class MovieEntity {
   title: string;
   price: number;
   year: number;
@@ -9,4 +9,4 @@ class Movie {
     this.year = year;
   }
 }
-export default Movie;
+export default MovieEntity;
