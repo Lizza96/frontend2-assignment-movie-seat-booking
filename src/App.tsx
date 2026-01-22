@@ -83,7 +83,7 @@ function App() {
 
           <Seat size="large" />
           <Seat size="large" />
-          <Seat size="large" />
+          <Seat size="large" isOccupied />
           <Seat size="large" isOccupied />
 
           <Seat size="large" isOccupied />
