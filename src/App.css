@@ -104,6 +104,7 @@ body {
 
 .row {
   display: flex;
+  justify-content: center;
 }
 
 .screen {
@@ -117,6 +118,7 @@ body {
 
 p.text {
   margin: 5px 0;
+  text-align: center;
 }
 
 p.text span {
