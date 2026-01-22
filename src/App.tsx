@@ -9,7 +9,7 @@ function App() {
       <ul className="showcase">
         <li>
           <div className="seat"></div>
-          <small>N/A</small>
+          <small>Avaliable</small>
         </li>
         <li>
           <div className="seat selected"></div>
