@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { BookingSummary } from './components/BookingSummary';
 import { MoviePicker } from './components/MoviePicker';
 import { SeatLegend } from './components/SeatLegend';
+import { Seat } from './components/Seat';
 
 function App() {
   const [selectedSeatsCount, setselectedSeatsCount] = useState(0);
@@ -17,64 +18,76 @@ function App() {
       <div className="container">
         <div className="screen"></div>
         <div className="row">
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
+          <Seat size="large" />
+          <Seat size="large" />
+
+          <Seat size="large" />
+          <Seat size="large" />
+          <Seat size="large" />
+          <Seat size="large" />
+
+          <Seat size="large" />
+          <Seat size="large" />
         </div>
         <div className="row">
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat occupied"></div>
-          <div className="seat occupied"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
+          <Seat size="large" />
+          <Seat size="large" />
+
+          <Seat size="large" />
+          <Seat size="large" isOccupied />
+          <Seat size="large" isOccupied />
+          <Seat size="large" />
+
+          <Seat size="large" />
+          <Seat size="large" />
         </div>
         <div className="row">
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat occupied"></div>
-          <div className="seat occupied"></div>
+          <Seat size="large" />
+          <Seat size="large" />
+
+          <Seat size="large" />
+          <Seat size="large" />
+          <Seat size="large" />
+          <Seat size="large" />
+
+          <Seat size="large" isOccupied />
+          <Seat size="large" isOccupied />
         </div>
         <div className="row">
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
+          <Seat size="large" />
+          <Seat size="large" />
+
+          <Seat size="large" />
+          <Seat size="large" />
+          <Seat size="large" />
+          <Seat size="large" />
+
+          <Seat size="large" />
+          <Seat size="large" />
         </div>
         <div className="row">
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat occupied"></div>
-          <div className="seat occupied"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
+          <Seat size="large" />
+          <Seat size="large" />
+
+          <Seat size="large" />
+          <Seat size="large" isOccupied />
+          <Seat size="large" isOccupied />
+          <Seat size="large" />
+
+          <Seat size="large" />
+          <Seat size="large" />
         </div>
         <div className="row">
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat"></div>
-          <div className="seat occupied"></div>
-          <div className="seat occupied"></div>
-          <div className="seat occupied"></div>
-          <div className="seat"></div>
+          <Seat size="large" />
+          <Seat size="large" />
+
+          <Seat size="large" />
+          <Seat size="large" />
+          <Seat size="large" />
+          <Seat size="large" isOccupied />
+
+          <Seat size="large" isOccupied />
+          <Seat size="large" />
         </div>
       </div>
       <BookingSummary
