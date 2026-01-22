@@ -1,8 +1,12 @@
 import './App.css';
+import React, { useState } from 'react';
 import { BookingSummary } from './components/BookingSummary';
 import { MoviePicker } from './components/MoviePicker';
 
 function App() {
+  const [selectedSeatsCount, setselectedSeatsCount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+
   return (
     <>
       <MoviePicker />
@@ -84,7 +88,10 @@ function App() {
           <div className="seat"></div>
         </div>
       </div>
-      <BookingSummary selectedSeatsCount={0} totalPrice={0} />
+      <BookingSummary
+        selectedSeatsCount={selectedSeatsCount}
+        totalPrice={totalPrice}
+      />
     </>
   );
 }
