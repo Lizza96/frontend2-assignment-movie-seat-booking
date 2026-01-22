@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import loadMovies from '../api/movies';
 import type Movie from '../models/Movie';
 
-export function MoviePicker() {
+export const MoviePicker = () => {
   const [movies, setMovies] = useState(Array<Movie>);
 
   //Fetch movies from API, once on mount
@@ -27,4 +27,4 @@ export function MoviePicker() {
       </select>
     </div>
   );
-}
+};
