@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BookingSummary } from './components/BookingSummary';
 import { MoviePicker } from './components/MoviePicker';
 import { SeatLegend } from './components/SeatLegend';
-import { Seat } from './components/Seat';
+import { SeatGrid } from './components/SeatGrid';
 
 function App() {
   const [selectedSeatsCount, setselectedSeatsCount] = useState(0);
@@ -17,78 +17,7 @@ function App() {
 
       <div className="container">
         <div className="screen"></div>
-        <div className="row">
-          <Seat size="large" />
-          <Seat size="large" />
-
-          <Seat size="large" />
-          <Seat size="large" />
-          <Seat size="large" />
-          <Seat size="large" />
-
-          <Seat size="large" />
-          <Seat size="large" />
-        </div>
-        <div className="row">
-          <Seat size="large" />
-          <Seat size="large" />
-
-          <Seat size="large" />
-          <Seat size="large" isOccupied />
-          <Seat size="large" isOccupied />
-          <Seat size="large" />
-
-          <Seat size="large" />
-          <Seat size="large" />
-        </div>
-        <div className="row">
-          <Seat size="large" />
-          <Seat size="large" />
-
-          <Seat size="large" />
-          <Seat size="large" />
-          <Seat size="large" />
-          <Seat size="large" />
-
-          <Seat size="large" isOccupied />
-          <Seat size="large" isOccupied />
-        </div>
-        <div className="row">
-          <Seat size="large" />
-          <Seat size="large" />
-
-          <Seat size="large" />
-          <Seat size="large" />
-          <Seat size="large" />
-          <Seat size="large" />
-
-          <Seat size="large" />
-          <Seat size="large" />
-        </div>
-        <div className="row">
-          <Seat size="large" />
-          <Seat size="large" />
-
-          <Seat size="large" />
-          <Seat size="large" isOccupied />
-          <Seat size="large" isOccupied />
-          <Seat size="large" />
-
-          <Seat size="large" />
-          <Seat size="large" />
-        </div>
-        <div className="row">
-          <Seat size="large" />
-          <Seat size="large" />
-
-          <Seat size="large" />
-          <Seat size="large" />
-          <Seat size="large" isOccupied />
-          <Seat size="large" isOccupied />
-
-          <Seat size="large" isOccupied />
-          <Seat size="large" />
-        </div>
+        <SeatGrid />
       </div>
       <BookingSummary
         selectedSeatsCount={selectedSeatsCount}
