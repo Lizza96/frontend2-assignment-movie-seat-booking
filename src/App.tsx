@@ -84,7 +84,7 @@ function App() {
           <div className="seat"></div>
         </div>
       </div>
-      <BookingSummary seatCount={0} totalPrice={0} />
+      <BookingSummary selectedSeatsCount={0} totalPrice={0} />
     </>
   );
 }
