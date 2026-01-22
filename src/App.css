@@ -40,11 +40,19 @@ body {
 
 .seat {
   background-color: #444451;
-  height: 12px;
-  width: 15px;
   margin: 3px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+.seat.small {
+  height: 12px;
+  width: 15px;
+}
+
+.seat.large {
+  height: 17px;
+  width: 20px;
 }
 
 .seat.selected {

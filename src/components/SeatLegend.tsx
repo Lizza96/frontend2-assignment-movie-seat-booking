@@ -4,13 +4,17 @@ export const SeatLegend = () => {
   return (
     <ul className="showcase">
       <li>
-        <Seat>Avaliable</Seat>
+        <Seat size="small">Avaliable</Seat>
       </li>
       <li>
-        <Seat isSelected>Selected</Seat>
+        <Seat size="small" isSelected>
+          Selected
+        </Seat>
       </li>
       <li>
-        <Seat isOccupied>Occupied</Seat>
+        <Seat size="small" isOccupied>
+          Occupied
+        </Seat>
       </li>
     </ul>
   );
