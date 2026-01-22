@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import { BookingSummary } from './components/BookingSummary';
 import { MoviePicker } from './components/MoviePicker';
+import { SeatLegend } from './components/SeatLegend';
 
 function App() {
   const [selectedSeatsCount, setselectedSeatsCount] = useState(0);
@@ -11,20 +12,7 @@ function App() {
     <>
       <MoviePicker />
 
-      <ul className="showcase">
-        <li>
-          <div className="seat"></div>
-          <small>Avaliable</small>
-        </li>
-        <li>
-          <div className="seat selected"></div>
-          <small>Selected</small>
-        </li>
-        <li>
-          <div className="seat occupied"></div>
-          <small>Occupied</small>
-        </li>
-      </ul>
+      <SeatLegend />
 
       <div className="container">
         <div className="screen"></div>
