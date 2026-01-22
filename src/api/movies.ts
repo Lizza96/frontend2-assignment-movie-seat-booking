@@ -1,5 +1,5 @@
 import Movie from '../models/Movie';
-import type MovieEntity from '../models/MovieEntity';
+import type { MovieEntity } from '../models/MovieEntity';
 
 const dbUrl = 'http://localhost:3000/movies';
 
