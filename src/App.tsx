@@ -25,6 +25,7 @@ function App() {
           <small>Occupied</small>
         </li>
       </ul>
+
       <div className="container">
         <div className="screen"></div>
         <div className="row">
