@@ -36,6 +36,8 @@ body {
 .container {
   perspective: 1000px;
   margin-bottom: 30px;
+  width: fit-content;
+  margin-inline: auto;
 }
 
 .seat {
