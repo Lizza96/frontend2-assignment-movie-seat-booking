@@ -36,15 +36,25 @@ body {
 .container {
   perspective: 1000px;
   margin-bottom: 30px;
+  width: fit-content;
+  margin-inline: auto;
 }
 
 .seat {
   background-color: #444451;
-  height: 12px;
-  width: 15px;
   margin: 3px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+.seat.small {
+  height: 12px;
+  width: 15px;
+}
+
+.seat.large {
+  height: 17px;
+  width: 20px;
 }
 
 .seat.selected {
@@ -96,6 +106,7 @@ body {
 
 .row {
   display: flex;
+  justify-content: center;
 }
 
 .screen {
@@ -109,6 +120,7 @@ body {
 
 p.text {
   margin: 5px 0;
+  text-align: center;
 }
 
 p.text span {
