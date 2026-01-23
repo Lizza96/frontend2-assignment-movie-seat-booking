@@ -40,5 +40,27 @@
       "year": "2018",
       "price": 40
     }
+  ],
+  "bookings": [
+    {
+      "The Lion King": [
+        { "seat": "B41", "status": "occupied" },
+        { "seat": "B5", "status": "occupied" },
+        { "seat": "C7", "status": "occupied" },
+        { "seat": "C8", "status": "occupied" },
+        { "seat": "E4", "status": "occupied" },
+        { "seat": "E5", "status": "occupied" },
+        { "seat": "F5", "status": "occupied" },
+        { "seat": "F6", "status": "occupied" },
+        { "seat": "F7", "status": "occupied" }
+      ]
+    },
+    { "Mowgli: Legend of the Jungle": [] },
+    { "Doctor Strange": [] },
+    { "John Wick": [] },
+    { "Fast and furious 6": [] },
+    { "The mummy returns": [] },
+    { "Jumanji: Welcome to the Jungle": [] },
+    { "Rampage": [] }
   ]
 }
