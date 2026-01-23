@@ -6,7 +6,7 @@ import { SeatLegend } from './components/SeatLegend';
 import { SeatGrid } from './components/SeatGrid';
 
 function App() {
-  const [selectedSeatsCount, setselectedSeatsCount] = useState(0);
+  const [selectedSeatsCount, setSelectedSeatsCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
   return (
