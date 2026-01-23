@@ -7,12 +7,12 @@ export const SeatLegend = () => {
         <Seat size="small">Avaliable</Seat>
       </li>
       <li>
-        <Seat size="small" isSelected>
+        <Seat size="small" status="selected">
           Selected
         </Seat>
       </li>
       <li>
-        <Seat size="small" isOccupied>
+        <Seat size="small" status="occupied">
           Occupied
         </Seat>
       </li>
