@@ -1,17 +1,15 @@
 type SeatProps = {
   children?: React.ReactNode;
-  isSelected?: boolean;
-  isOccupied?: boolean;
+  status?: 'occupied' | 'selected' | 'available';
   size?: 'large' | 'small';
 };
 
 export const Seat = ({
-  isSelected,
-  isOccupied,
   size = 'small',
+  status = 'available',
   children,
 }: SeatProps) => {
-  const seatClass = `seat${isSelected ? ' selected' : ''}${isOccupied ? ' occupied' : ''} ${size}`;
+  const seatClass = `seat${status === 'available' ? '' : ` ${status}`} ${size}`;
   const label = children ? <small>{children}</small> : null;
 
   return (

@@ -18,8 +18,8 @@ export const SeatGrid = () => {
         <Seat size="large" />
         <Seat size="large" />
         <Seat size="large" />
-        <Seat size="large" isOccupied />
-        <Seat size="large" isOccupied />
+        <Seat size="large" status="occupied" />
+        <Seat size="large" status="occupied" />
         <Seat size="large" />
         <Seat size="large" />
         <Seat size="large" />
@@ -31,8 +31,8 @@ export const SeatGrid = () => {
         <Seat size="large" />
         <Seat size="large" />
         <Seat size="large" />
-        <Seat size="large" isOccupied />
-        <Seat size="large" isOccupied />
+        <Seat size="large" status="occupied" />
+        <Seat size="large" status="occupied" />
       </div>
       <div className="row">
         <Seat size="large" />
@@ -48,8 +48,8 @@ export const SeatGrid = () => {
         <Seat size="large" />
         <Seat size="large" />
         <Seat size="large" />
-        <Seat size="large" isOccupied />
-        <Seat size="large" isOccupied />
+        <Seat size="large" status="occupied" />
+        <Seat size="large" status="occupied" />
         <Seat size="large" />
         <Seat size="large" />
         <Seat size="large" />
@@ -59,9 +59,9 @@ export const SeatGrid = () => {
         <Seat size="large" />
         <Seat size="large" />
         <Seat size="large" />
-        <Seat size="large" isOccupied />
-        <Seat size="large" isOccupied />
-        <Seat size="large" isOccupied />
+        <Seat size="large" status="occupied" />
+        <Seat size="large" status="occupied" />
+        <Seat size="large" status="occupied" />
         <Seat size="large" />
       </div>
     </>
