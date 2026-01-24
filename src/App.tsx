@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      <MoviePicker />
+      <MoviePicker setSelectedMovie={setSelectedMovie} />
 
       <SeatLegend />
 

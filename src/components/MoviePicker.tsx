@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 import loadMovies from '../api/movies';
 import type Movie from '../models/Movie';
 
-export const MoviePicker = () => {
+type MoviePickerProps = {
+  setSelectedMovie: (movie: string) => void;
+};
+
+export const MoviePicker = ({ setSelectedMovie }: MoviePickerProps) => {
   const [movies, setMovies] = useState(Array<Movie>);
 
   //Fetch movies from API, once on mount
@@ -10,6 +14,7 @@ export const MoviePicker = () => {
     async function getMovieData() {
       const fetchedMovies: Array<Movie> = await loadMovies();
       setMovies(fetchedMovies);
+      setSelectedMovie(fetchedMovies[0].name);
     }
 
     getMovieData();
