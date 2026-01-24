@@ -1,87 +1,30 @@
-import { Seat } from './Seat';
 import type { Booking } from '../interfaces/Booking';
+import { SeatRow } from './SeatRow';
 
 type SeatGridProps = {
   selectedMovieBookings: Record<string, Booking[]>;
 };
 
 export const SeatGrid = ({ selectedMovieBookings }: SeatGridProps) => {
-  const seatsPerRow = 8;
-  console.log(selectedMovieBookings);
-
   return (
     <>
       {/* Row A */}
-      <div className="row">
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-      </div>
+      <SeatRow row="a" rowBookings={selectedMovieBookings['a']} />
 
       {/* Row B */}
-      <div className="row">
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" status="occupied" />
-        <Seat size="large" status="occupied" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-      </div>
+      <SeatRow row="b" rowBookings={selectedMovieBookings['b']} />
 
       {/* Row C */}
-      <div className="row">
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" status="occupied" />
-        <Seat size="large" status="occupied" />
-      </div>
+      <SeatRow row="c" rowBookings={selectedMovieBookings['c']} />
 
       {/* Row D */}
-      <div className="row">
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-      </div>
+      <SeatRow row="d" rowBookings={selectedMovieBookings['d']} />
 
       {/* Row E */}
-      <div className="row">
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" status="occupied" />
-        <Seat size="large" status="occupied" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-      </div>
+      <SeatRow row="e" rowBookings={selectedMovieBookings['e']} />
 
       {/* Row F */}
-      <div className="row">
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" />
-        <Seat size="large" status="occupied" />
-        <Seat size="large" status="occupied" />
-        <Seat size="large" status="occupied" />
-        <Seat size="large" />
-      </div>
+      <SeatRow row="f" rowBookings={selectedMovieBookings['f']} />
     </>
   );
 };
