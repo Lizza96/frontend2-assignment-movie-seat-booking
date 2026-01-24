@@ -1,25 +1,10 @@
-import { useEffect, useState } from 'react';
-import loadMovies from '../api/movies';
 import type Movie from '../models/Movie';
 
 type MoviePickerProps = {
-  setSelectedMovie: (movie: Movie) => void;
+  movies: Array<Movie>;
 };
 
-export const MoviePicker = ({ setSelectedMovie }: MoviePickerProps) => {
-  const [movies, setMovies] = useState(Array<Movie>);
-
-  //Fetch movies from API, once on mount
-  useEffect(() => {
-    async function getMovieData() {
-      const fetchedMovies: Array<Movie> = await loadMovies();
-      setMovies(fetchedMovies);
-      setSelectedMovie(fetchedMovies[0]);
-    }
-
-    getMovieData();
-  }, []);
-
+export const MoviePicker = ({ movies }: MoviePickerProps) => {
   return (
     <div className="movie-container">
       <label htmlFor="movie">Pick a movie:</label>
