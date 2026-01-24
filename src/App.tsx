@@ -6,12 +6,13 @@ import { SeatLegend } from './components/SeatLegend';
 import { SeatGrid } from './components/SeatGrid';
 import loadBookings from './api/bookings';
 import type { SeatBookings } from './interfaces/SeatBookings';
+import Movie from './models/Movie';
 
 function App() {
   const [selectedSeatsCount, setSelectedSeatsCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [bookings, setbookings] = useState({} as SeatBookings);
-  const [selectedMovie, setSelectedMovie] = useState('');
+  const [selectedMovie, setSelectedMovie] = useState({} as Movie);
 
   //Fetch bookings from API, once on mount
   useEffect(() => {

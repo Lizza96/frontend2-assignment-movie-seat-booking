@@ -3,7 +3,7 @@ import loadMovies from '../api/movies';
 import type Movie from '../models/Movie';
 
 type MoviePickerProps = {
-  setSelectedMovie: (movie: string) => void;
+  setSelectedMovie: (movie: Movie) => void;
 };
 
 export const MoviePicker = ({ setSelectedMovie }: MoviePickerProps) => {
@@ -14,7 +14,7 @@ export const MoviePicker = ({ setSelectedMovie }: MoviePickerProps) => {
     async function getMovieData() {
       const fetchedMovies: Array<Movie> = await loadMovies();
       setMovies(fetchedMovies);
-      setSelectedMovie(fetchedMovies[0].name);
+      setSelectedMovie(fetchedMovies[0]);
     }
 
     getMovieData();
