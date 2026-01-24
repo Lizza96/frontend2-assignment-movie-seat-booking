@@ -57,6 +57,7 @@ function App() {
         <div className="screen"></div>
         <SeatGrid selectedMovieBookings={bookings[selectedMovie.id]} />
       </div>
+
       <BookingSummary
         selectedSeatsCount={selectedSeatsCount}
         totalPrice={totalPrice}
