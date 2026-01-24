@@ -1,12 +1,13 @@
 import { Seat } from './Seat';
-import type { SeatBookings } from '../interfaces/SeatBookings';
+import type { Booking } from '../interfaces/Booking';
 
 type SeatGridProps = {
-  bookings: SeatBookings;
+  selectedMovieBookings: Record<string, Booking[]>;
 };
 
-export const SeatGrid = ({ bookings }: SeatGridProps) => {
+export const SeatGrid = ({ selectedMovieBookings }: SeatGridProps) => {
   const seatsPerRow = 8;
+  console.log(selectedMovieBookings);
 
   return (
     <>
