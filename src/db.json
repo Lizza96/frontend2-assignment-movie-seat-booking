@@ -90,12 +90,61 @@
         }
       ]
     },
-    "mowgli: legend of the jungle": [],
-    "doctor strange": [],
-    "john wick": [],
-    "fast and furious 6": [],
-    "the mummy returns": [],
-    "jumanji: welcome to the jungle": [],
-    "rampage": []
+    "mowgli: legend of the jungle": {
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    },
+    "doctor strange": {
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    },
+    "john wick": {
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    },
+    "fast and furious 6": {
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    },
+    "the mummy returns": {
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    },
+    "jumanji: welcome to the jungle": {
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    },
+    "rampage": {
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    }
   }
 }
