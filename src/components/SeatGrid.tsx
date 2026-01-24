@@ -6,7 +6,7 @@ type SeatGridProps = {
 };
 
 export const SeatGrid = ({ bookings }: SeatGridProps) => {
-  const totalSeats: number = 48;
+  const seatsPerRow = 8;
 
   return (
     <>
