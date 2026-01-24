@@ -1,41 +1,49 @@
 {
   "movies": [
     {
+      "id": "the-lion-king",
       "title": "The Lion King",
       "year": "2019",
       "price": 100
     },
     {
+      "id": "mowgli:-legend-of-the-jungle",
       "title": "Mowgli: Legend of the Jungle",
       "year": "2018",
       "price": 40
     },
     {
+      "id": "doctor-strange",
       "title": "Doctor Strange",
       "year": "2016",
       "price": 120
     },
     {
+      "id": "john-wick",
       "title": "John Wick",
       "year": "2014",
       "price": 60
     },
     {
+      "id": "fast-and-furious-6",
       "title": "Fast and furious 6",
       "year": "2013",
       "price": 100
     },
     {
+      "id": "the-mummy-returns",
       "title": "The mummy returns",
       "year": "2001",
       "price": 50
     },
     {
+      "id": "jumanji:-welcome-to-the-jungle",
       "title": "Jumanji: Welcome to the Jungle",
       "year": "2017",
       "price": 70
     },
     {
+      "id": "rampage",
       "title": "Rampage",
       "year": "2018",
       "price": 40
