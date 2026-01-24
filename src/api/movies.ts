@@ -10,7 +10,7 @@ export default async function loadMovies(): Promise<Array<Movie>> {
 
   const movies: Array<Movie> = data.map(
     (movieEntity: MovieEntity) =>
-      new Movie(movieEntity.title, movieEntity.price),
+      new Movie(movieEntity.id, movieEntity.title, movieEntity.price),
   );
 
   return movies;
