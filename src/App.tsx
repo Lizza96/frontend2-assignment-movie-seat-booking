@@ -11,6 +11,7 @@ function App() {
   const [selectedSeatsCount, setSelectedSeatsCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [bookings, setbookings] = useState({} as SeatBookings);
+  const [selectedMovie, setSelectedMovie] = useState('');
 
   //Fetch bookings from API, once on mount
   useEffect(() => {
