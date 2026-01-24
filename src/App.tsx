@@ -30,7 +30,7 @@ function App() {
 
       <div className="container">
         <div className="screen"></div>
-        <SeatGrid />
+        <SeatGrid bookings={bookings} />
       </div>
       <BookingSummary
         selectedSeatsCount={selectedSeatsCount}

@@ -1,7 +1,13 @@
 import { Seat } from './Seat';
+import type { SeatBookings } from '../interfaces/SeatBookings';
 
-export const SeatGrid = () => {
+type SeatGridProps = {
+  bookings: SeatBookings;
+};
+
+export const SeatGrid = ({ bookings }: SeatGridProps) => {
   const totalSeats: number = 48;
+
   return (
     <>
       <div className="row">
