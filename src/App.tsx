@@ -15,7 +15,6 @@ function App() {
   const [bookings, setbookings] = useState({} as SeatBookings);
   const [movies, setMovies] = useState(Array<Movie>);
   const [selectedMovie, setSelectedMovie] = useState({} as Movie);
-  const [isLoading, setIsLoading] = useState(true);
 
   //Fetch bookings and movies from API, once on mount
   useEffect(() => {
@@ -37,13 +36,11 @@ function App() {
         await getBookingsData();
       } catch (error) {
         console.error('Error fetching data:', error);
-      } finally {
-        setIsLoading(false);
       }
     })();
   }, []);
 
-  if (isLoading) {
+  if (bookings[selectedMovie.id] === undefined) {
     return <h2>Loading...</h2>;
   }
 
