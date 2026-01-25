@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 type SeatProps = {
   children?: React.ReactNode;
-  status?: 'occupied' | 'available';
+  status?: 'occupied' | 'selected' | 'available';
   size?: 'large' | 'small';
 };
 
