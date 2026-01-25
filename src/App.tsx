@@ -55,6 +55,9 @@ function App() {
         <SeatGrid
           selectedMovieBookings={bookings[selectedMovie.id]}
           setSelectedSeatsCount={setSelectedSeatsCount}
+          currentSeatCount={selectedSeatsCount}
+          ticketPrice={selectedMovie.price}
+          setTotalPrice={setTotalPrice}
         />
       </div>
 

@@ -6,6 +6,9 @@ type SeatRowProps = {
   rowBookings: Booking[];
   seatsPerRow?: number;
   setSelectedSeatsCount: React.Dispatch<React.SetStateAction<number>>;
+  ticketPrice: number;
+  currentSeatCount: number;
+  setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export const SeatRow = ({
@@ -13,6 +16,9 @@ export const SeatRow = ({
   rowBookings,
   seatsPerRow = 8,
   setSelectedSeatsCount,
+  ticketPrice,
+  currentSeatCount,
+  setTotalPrice,
 }: SeatRowProps) => {
   const seats: Array<React.JSX.Element> = [];
 
@@ -26,6 +32,9 @@ export const SeatRow = ({
         size="large"
         status={seatStatus}
         setSelectedSeatsCount={setSelectedSeatsCount}
+        ticketPrice={ticketPrice}
+        currentSeatCount={currentSeatCount}
+        setTotalPrice={setTotalPrice}
       />,
     );
   }
