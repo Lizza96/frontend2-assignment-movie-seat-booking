@@ -52,7 +52,10 @@ function App() {
 
       <div className="container">
         <div className="screen"></div>
-        <SeatGrid selectedMovieBookings={bookings[selectedMovie.id]} />
+        <SeatGrid
+          selectedMovieBookings={bookings[selectedMovie.id]}
+          setSelectedSeatsCount={setSelectedSeatsCount}
+        />
       </div>
 
       <BookingSummary

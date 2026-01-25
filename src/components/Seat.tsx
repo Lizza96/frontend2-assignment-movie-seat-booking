@@ -4,14 +4,20 @@ type SeatProps = {
   children?: React.ReactNode;
   status?: 'occupied' | 'selected' | 'available';
   size?: 'large' | 'small';
+  setSelectedSeatsCount: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export const Seat = ({
   size = 'small',
   status = 'available',
   children,
+  setSelectedSeatsCount,
 }: SeatProps) => {
   function handleClick() {
+    setSelectedSeatsCount((prevCount) =>
+      isSelected ? prevCount - 1 : prevCount + 1,
+    );
+
     setIsSelected(!isSelected);
   }
 

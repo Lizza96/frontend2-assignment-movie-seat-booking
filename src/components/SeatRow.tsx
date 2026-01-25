@@ -5,12 +5,14 @@ type SeatRowProps = {
   row: string;
   rowBookings: Booking[];
   seatsPerRow?: number;
+  setSelectedSeatsCount: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export const SeatRow = ({
   row,
   rowBookings,
   seatsPerRow = 8,
+  setSelectedSeatsCount,
 }: SeatRowProps) => {
   const seats: Array<React.JSX.Element> = [];
 
@@ -23,6 +25,7 @@ export const SeatRow = ({
         key={`${row.toUpperCase()}${i}`}
         size="large"
         status={seatStatus}
+        setSelectedSeatsCount={setSelectedSeatsCount}
       />,
     );
   }
