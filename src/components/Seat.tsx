@@ -12,7 +12,6 @@ export const Seat = ({
   children,
 }: SeatProps) => {
   function handleClick() {
-    console.log('clicked');
     setIsSelected(!isSelected);
   }
 
