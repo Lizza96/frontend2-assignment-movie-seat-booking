@@ -24,7 +24,11 @@ export const Seat = ({
     <>
       <div
         className={seatClass}
-        onClick={status === 'available' ? handleClick : undefined}
+        onClick={
+          status === 'available' && legendLabel === null
+            ? handleClick
+            : undefined
+        }
       ></div>
       {legendLabel}
     </>
