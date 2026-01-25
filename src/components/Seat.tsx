@@ -18,7 +18,7 @@ export const Seat = ({
   const [isSelected, setIsSelected] = useState(false);
 
   const seatClass = `seat${status === 'available' ? '' : ` ${status}`}${isSelected ? ' selected' : ''} ${size}`;
-  const label = children ? <small>{children}</small> : null;
+  const legendLabel = children ? <small>{children}</small> : null;
 
   return (
     <>
@@ -26,7 +26,7 @@ export const Seat = ({
         className={seatClass}
         onClick={status === 'available' ? handleClick : undefined}
       ></div>
-      {label}
+      {legendLabel}
     </>
   );
 };
