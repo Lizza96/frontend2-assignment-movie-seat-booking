@@ -34,7 +34,7 @@ export const Seat = ({
   seatNumber,
   setSelectedSeats,
 }: SeatProps) => {
-  const [isSelected, setIsSelected] = useState(false);
+  const isSelected = status == 'selected';
 
   function handleClick() {
     const newCount = isSelected ? currentSeatCount - 1 : currentSeatCount + 1;
@@ -51,11 +51,9 @@ export const Seat = ({
         ? prevSeats[row].filter((seat) => seat != seatNumber)
         : [...prevSeats[row], seatNumber],
     }));
-
-    setIsSelected(!isSelected);
   }
 
-  const seatClass = `seat${status === 'available' ? '' : ` ${status}`}${isSelected ? ' selected' : ''} ${size}`;
+  const seatClass = `seat${status === 'available' ? '' : ` ${status}`} ${size}`;
   const legendLabel = children ? <small>{children}</small> : null;
 
   return (
@@ -63,9 +61,7 @@ export const Seat = ({
       <div
         className={seatClass}
         onClick={
-          status === 'available' && legendLabel === null
-            ? handleClick
-            : undefined
+          status != 'occupied' && legendLabel === null ? handleClick : undefined
         }
       ></div>
       {legendLabel}

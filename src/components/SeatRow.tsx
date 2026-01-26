@@ -19,6 +19,7 @@ type SeatRowProps = {
       f: number[];
     }>
   >;
+  rowSelection: number[];
 };
 
 export const SeatRow = ({
@@ -30,13 +31,16 @@ export const SeatRow = ({
   currentSeatCount,
   setTotalPrice,
   setSelectedSeats,
+  rowSelection,
 }: SeatRowProps) => {
   const seats: Array<React.JSX.Element> = [];
 
   for (let i = 1; i <= seatsPerRow; i++) {
     const seatStatus = rowBookings.some((booking) => booking?.seat === i)
       ? 'occupied'
-      : 'available';
+      : rowSelection.includes(i)
+        ? 'selected'
+        : 'available';
     seats.push(
       <Seat
         key={`${row.toUpperCase()}${i}`}
