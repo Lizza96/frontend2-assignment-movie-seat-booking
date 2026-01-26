@@ -24,6 +24,25 @@ function App() {
   const [movies, setMovies] = useState(Array<Movie>);
   const [selectedMovie, setSelectedMovie] = useState({} as Movie);
 
+  const changeMovie = (movieId: string) => {
+    const selectedMovie = movies.find((movie) => movie.id === movieId);
+
+    if (selectedMovie != undefined) {
+      setSelectedMovie(selectedMovie);
+      setTotalPrice(0);
+      setSelectedSeatsCount(0);
+      setSelectedSeats((prevSeats) => ({
+        ...prevSeats,
+        a: [],
+        b: [],
+        c: [],
+        d: [],
+        e: [],
+        f: [],
+      }));
+    }
+  };
+
   //Fetch bookings and movies from API, once on mount
   useEffect(() => {
     async function getBookingsData() {
@@ -54,7 +73,7 @@ function App() {
 
   return (
     <>
-      <MoviePicker movies={movies} />
+      <MoviePicker movies={movies} onChangeMovie={changeMovie} />
 
       <SeatLegend />
 
