@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react';
 import { BookingSummary } from './components/BookingSummary';
 import { MoviePicker } from './components/MoviePicker';
 import { SeatLegend } from './components/SeatLegend';
-import { SeatGrid } from './components/SeatGrid';
 import loadBookings from './api/bookings';
 import type { SeatBookings } from './interfaces/SeatBookings';
 import Movie from './models/Movie';
 import loadMovies from './api/movies';
+import { SeatRow } from './components/SeatRow';
 
 function App() {
   const [selectedSeatsCount, setSelectedSeatsCount] = useState(0);
@@ -60,11 +60,57 @@ function App() {
 
       <div className="container">
         <div className="screen"></div>
-        <SeatGrid
-          selectedMovieBookings={bookings[selectedMovie.id]}
+        <SeatRow
+          row="a"
+          rowBookings={bookings[selectedMovie.id]['a']}
           setSelectedSeatsCount={setSelectedSeatsCount}
-          currentSeatCount={selectedSeatsCount}
           ticketPrice={selectedMovie.price}
+          currentSeatCount={selectedSeatsCount}
+          setTotalPrice={setTotalPrice}
+          setSelectedSeats={setSelectedSeats}
+        />
+        <SeatRow
+          row="b"
+          rowBookings={bookings[selectedMovie.id]['b']}
+          setSelectedSeatsCount={setSelectedSeatsCount}
+          ticketPrice={selectedMovie.price}
+          currentSeatCount={selectedSeatsCount}
+          setTotalPrice={setTotalPrice}
+          setSelectedSeats={setSelectedSeats}
+        />
+        <SeatRow
+          row="c"
+          rowBookings={bookings[selectedMovie.id]['c']}
+          setSelectedSeatsCount={setSelectedSeatsCount}
+          ticketPrice={selectedMovie.price}
+          currentSeatCount={selectedSeatsCount}
+          setTotalPrice={setTotalPrice}
+          setSelectedSeats={setSelectedSeats}
+        />
+        <SeatRow
+          row="d"
+          rowBookings={bookings[selectedMovie.id]['d']}
+          setSelectedSeatsCount={setSelectedSeatsCount}
+          ticketPrice={selectedMovie.price}
+          currentSeatCount={selectedSeatsCount}
+          setTotalPrice={setTotalPrice}
+          setSelectedSeats={setSelectedSeats}
+        />
+        <SeatRow
+          row="e"
+          rowBookings={bookings[selectedMovie.id]['e']}
+          setSelectedSeatsCount={setSelectedSeatsCount}
+          ticketPrice={selectedMovie.price}
+          currentSeatCount={selectedSeatsCount}
+          setTotalPrice={setTotalPrice}
+          setSelectedSeats={setSelectedSeats}
+        />
+        <SeatRow
+          row="f"
+          rowBookings={bookings[selectedMovie.id]['f']}
+          setSelectedSeatsCount={setSelectedSeatsCount}
+          ticketPrice={selectedMovie.price}
+          currentSeatCount={selectedSeatsCount}
           setTotalPrice={setTotalPrice}
           setSelectedSeats={setSelectedSeats}
         />
