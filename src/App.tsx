@@ -12,7 +12,6 @@ import loadMovies from './api/movies';
 function App() {
   const [selectedSeatsCount, setSelectedSeatsCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-
   const [selectedSeats, setSelectedSeats] = useState({
     a: [] as number[],
     b: [] as number[],
