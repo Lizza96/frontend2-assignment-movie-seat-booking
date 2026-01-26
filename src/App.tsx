@@ -87,6 +87,7 @@ function App() {
           currentSeatCount={selectedSeatsCount}
           setTotalPrice={setTotalPrice}
           setSelectedSeats={setSelectedSeats}
+          rowSelection={selectedSeats['a']}
         />
         <SeatRow
           row="b"
@@ -96,6 +97,7 @@ function App() {
           currentSeatCount={selectedSeatsCount}
           setTotalPrice={setTotalPrice}
           setSelectedSeats={setSelectedSeats}
+          rowSelection={selectedSeats['b']}
         />
         <SeatRow
           row="c"
@@ -105,6 +107,7 @@ function App() {
           currentSeatCount={selectedSeatsCount}
           setTotalPrice={setTotalPrice}
           setSelectedSeats={setSelectedSeats}
+          rowSelection={selectedSeats['c']}
         />
         <SeatRow
           row="d"
@@ -114,6 +117,7 @@ function App() {
           currentSeatCount={selectedSeatsCount}
           setTotalPrice={setTotalPrice}
           setSelectedSeats={setSelectedSeats}
+          rowSelection={selectedSeats['d']}
         />
         <SeatRow
           row="e"
@@ -123,6 +127,7 @@ function App() {
           currentSeatCount={selectedSeatsCount}
           setTotalPrice={setTotalPrice}
           setSelectedSeats={setSelectedSeats}
+          rowSelection={selectedSeats['e']}
         />
         <SeatRow
           row="f"
@@ -132,6 +137,7 @@ function App() {
           currentSeatCount={selectedSeatsCount}
           setTotalPrice={setTotalPrice}
           setSelectedSeats={setSelectedSeats}
+          rowSelection={selectedSeats['f']}
         />
       </div>
 
