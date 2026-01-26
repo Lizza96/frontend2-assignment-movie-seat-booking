@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 type SeatProps = {
   children?: React.ReactNode;
   status?: 'occupied' | 'selected' | 'available';
