@@ -126,3 +126,21 @@ p.text {
 p.text span {
   color: #6feaf6;
 }
+
+.booking-wrapper {
+  display: grid;
+  justify-items: center;
+}
+
+.book-tickets-btn {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.book-tickets-btn:disabled {
+  cursor: not-allowed;
+}
