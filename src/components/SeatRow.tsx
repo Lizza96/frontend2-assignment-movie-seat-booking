@@ -2,13 +2,23 @@ import type { Booking } from '../interfaces/Booking';
 import { Seat } from './Seat';
 
 type SeatRowProps = {
-  row: string;
+  row: 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
   rowBookings: Booking[];
   seatsPerRow?: number;
   setSelectedSeatsCount: React.Dispatch<React.SetStateAction<number>>;
   ticketPrice: number;
   currentSeatCount: number;
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
+  setSelectedSeats: React.Dispatch<
+    React.SetStateAction<{
+      a: number[];
+      b: number[];
+      c: number[];
+      d: number[];
+      e: number[];
+      f: number[];
+    }>
+  >;
 };
 
 export const SeatRow = ({
@@ -19,6 +29,7 @@ export const SeatRow = ({
   ticketPrice,
   currentSeatCount,
   setTotalPrice,
+  setSelectedSeats,
 }: SeatRowProps) => {
   const seats: Array<React.JSX.Element> = [];
 
@@ -35,6 +46,9 @@ export const SeatRow = ({
         ticketPrice={ticketPrice}
         currentSeatCount={currentSeatCount}
         setTotalPrice={setTotalPrice}
+        row={row}
+        seatNumber={i}
+        setSelectedSeats={setSelectedSeats}
       />,
     );
   }

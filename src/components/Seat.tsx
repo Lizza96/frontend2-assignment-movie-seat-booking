@@ -8,6 +8,18 @@ type SeatProps = {
   ticketPrice: number;
   currentSeatCount: number;
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
+  row: 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
+  seatNumber: number;
+  setSelectedSeats: React.Dispatch<
+    React.SetStateAction<{
+      a: number[];
+      b: number[];
+      c: number[];
+      d: number[];
+      e: number[];
+      f: number[];
+    }>
+  >;
 };
 
 export const Seat = ({
@@ -18,7 +30,12 @@ export const Seat = ({
   ticketPrice,
   currentSeatCount,
   setTotalPrice,
+  row,
+  seatNumber,
+  setSelectedSeats,
 }: SeatProps) => {
+  const [isSelected, setIsSelected] = useState(false);
+
   function handleClick() {
     const newCount = isSelected ? currentSeatCount - 1 : currentSeatCount + 1;
 
@@ -28,10 +45,15 @@ export const Seat = ({
 
     setTotalPrice(totalPrice);
 
+    setSelectedSeats((prevSeats) => ({
+      ...prevSeats,
+      [row]: isSelected
+        ? prevSeats[row].filter((seat) => seat != seatNumber)
+        : [...prevSeats[row], seatNumber],
+    }));
+
     setIsSelected(!isSelected);
   }
-
-  const [isSelected, setIsSelected] = useState(false);
 
   const seatClass = `seat${status === 'available' ? '' : ` ${status}`}${isSelected ? ' selected' : ''} ${size}`;
   const legendLabel = children ? <small>{children}</small> : null;

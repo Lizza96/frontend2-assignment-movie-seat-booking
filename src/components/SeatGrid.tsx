@@ -7,6 +7,16 @@ type SeatGridProps = {
   ticketPrice: number;
   currentSeatCount: number;
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
+  setSelectedSeats: React.Dispatch<
+    React.SetStateAction<{
+      a: number[];
+      b: number[];
+      c: number[];
+      d: number[];
+      e: number[];
+      f: number[];
+    }>
+  >;
 };
 
 export const SeatGrid = ({
@@ -15,6 +25,7 @@ export const SeatGrid = ({
   ticketPrice,
   currentSeatCount,
   setTotalPrice,
+  setSelectedSeats,
 }: SeatGridProps) => {
   return (
     <>
@@ -25,6 +36,7 @@ export const SeatGrid = ({
         ticketPrice={ticketPrice}
         currentSeatCount={currentSeatCount}
         setTotalPrice={setTotalPrice}
+        setSelectedSeats={setSelectedSeats}
       />
       <SeatRow
         row="b"
@@ -33,6 +45,7 @@ export const SeatGrid = ({
         ticketPrice={ticketPrice}
         currentSeatCount={currentSeatCount}
         setTotalPrice={setTotalPrice}
+        setSelectedSeats={setSelectedSeats}
       />
       <SeatRow
         row="c"
@@ -41,6 +54,7 @@ export const SeatGrid = ({
         ticketPrice={ticketPrice}
         currentSeatCount={currentSeatCount}
         setTotalPrice={setTotalPrice}
+        setSelectedSeats={setSelectedSeats}
       />
       <SeatRow
         row="d"
@@ -49,6 +63,7 @@ export const SeatGrid = ({
         ticketPrice={ticketPrice}
         currentSeatCount={currentSeatCount}
         setTotalPrice={setTotalPrice}
+        setSelectedSeats={setSelectedSeats}
       />
       <SeatRow
         row="e"
@@ -57,6 +72,7 @@ export const SeatGrid = ({
         ticketPrice={ticketPrice}
         currentSeatCount={currentSeatCount}
         setTotalPrice={setTotalPrice}
+        setSelectedSeats={setSelectedSeats}
       />
       <SeatRow
         row="f"
@@ -65,6 +81,7 @@ export const SeatGrid = ({
         ticketPrice={ticketPrice}
         currentSeatCount={currentSeatCount}
         setTotalPrice={setTotalPrice}
+        setSelectedSeats={setSelectedSeats}
       />
     </>
   );
