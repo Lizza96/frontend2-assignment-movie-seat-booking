@@ -20,7 +20,7 @@ function App() {
     e: [] as number[],
     f: [] as number[],
   });
-  const [bookings, setbookings] = useState({} as SeatBookings);
+  const [bookings, setbookings] = useState([] as SeatBookings);
   const [movies, setMovies] = useState(Array<Movie>);
   const [selectedMovie, setSelectedMovie] = useState({} as Movie);
 
@@ -99,7 +99,10 @@ function App() {
     })();
   }, []);
 
-  if (bookings[selectedMovie.id] === undefined) {
+  const bookingsForSelectedMovie = bookings.find(
+    (booking) => booking.id === selectedMovie.id,
+  );
+  if (bookingsForSelectedMovie == undefined) {
     return <h2>Loading...</h2>;
   }
 
@@ -113,7 +116,7 @@ function App() {
         <div className="screen"></div>
         <SeatRow
           row="a"
-          rowBookings={bookings[selectedMovie.id]['a']}
+          rowBookings={bookingsForSelectedMovie['a'] ?? []}
           setSelectedSeatsCount={setSelectedSeatsCount}
           ticketPrice={selectedMovie.price}
           currentSeatCount={selectedSeatsCount}
@@ -123,7 +126,7 @@ function App() {
         />
         <SeatRow
           row="b"
-          rowBookings={bookings[selectedMovie.id]['b']}
+          rowBookings={bookingsForSelectedMovie['b'] ?? []}
           setSelectedSeatsCount={setSelectedSeatsCount}
           ticketPrice={selectedMovie.price}
           currentSeatCount={selectedSeatsCount}
@@ -133,7 +136,7 @@ function App() {
         />
         <SeatRow
           row="c"
-          rowBookings={bookings[selectedMovie.id]['c']}
+          rowBookings={bookingsForSelectedMovie['c'] ?? []}
           setSelectedSeatsCount={setSelectedSeatsCount}
           ticketPrice={selectedMovie.price}
           currentSeatCount={selectedSeatsCount}
@@ -143,7 +146,7 @@ function App() {
         />
         <SeatRow
           row="d"
-          rowBookings={bookings[selectedMovie.id]['d']}
+          rowBookings={bookingsForSelectedMovie['d'] ?? []}
           setSelectedSeatsCount={setSelectedSeatsCount}
           ticketPrice={selectedMovie.price}
           currentSeatCount={selectedSeatsCount}
@@ -153,7 +156,7 @@ function App() {
         />
         <SeatRow
           row="e"
-          rowBookings={bookings[selectedMovie.id]['e']}
+          rowBookings={bookingsForSelectedMovie['e'] ?? []}
           setSelectedSeatsCount={setSelectedSeatsCount}
           ticketPrice={selectedMovie.price}
           currentSeatCount={selectedSeatsCount}
@@ -163,7 +166,7 @@ function App() {
         />
         <SeatRow
           row="f"
-          rowBookings={bookings[selectedMovie.id]['f']}
+          rowBookings={bookingsForSelectedMovie['f'] ?? []}
           setSelectedSeatsCount={setSelectedSeatsCount}
           ticketPrice={selectedMovie.price}
           currentSeatCount={selectedSeatsCount}

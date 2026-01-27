@@ -1,9 +1,9 @@
-import type { Booking } from '../interfaces/Booking';
+import type CustomerBooking from '../interfaces/CustomerBooking';
 import { Seat } from './Seat';
 
 type SeatRowProps = {
   row: 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
-  rowBookings: Booking[];
+  rowBookings: CustomerBooking[];
   seatsPerRow?: number;
   setSelectedSeatsCount: React.Dispatch<React.SetStateAction<number>>;
   ticketPrice: number;
