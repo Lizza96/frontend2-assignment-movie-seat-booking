@@ -36,13 +36,13 @@ export const Seat = ({
 
   function handleClick() {
     if (
-      !currentSeatCount ||
-      !setSelectedSeatsCount ||
-      !ticketPrice ||
-      !setTotalPrice ||
-      !setSelectedSeats ||
-      !row ||
-      !seatNumber
+      currentSeatCount === undefined ||
+      setSelectedSeatsCount === undefined ||
+      ticketPrice === undefined ||
+      setTotalPrice === undefined ||
+      setSelectedSeats === undefined ||
+      row === undefined ||
+      seatNumber === undefined
     ) {
       return;
     }
