@@ -44,13 +44,16 @@ function App() {
   };
 
   const onBookingSubmit = (previousState: unknown, formData: FormData) => {
+    let validInput = true;
     const result = {
       errors: {} as Record<string, string>,
+      successMessage: undefined as string | undefined,
     };
     const nameRegex = /^[A-Za-zÅÄÖåäö]+([ -'][A-Za-zÅÄÖåäö]+)*$/;
     const name = formData.get('name') as string;
 
     if (name && !nameRegex.test(name)) {
+      validInput = false;
       result.errors['name'] =
         'Must not be empty, include numbers or special characters';
     }
@@ -61,8 +64,14 @@ function App() {
       /^(?:(?:\+|00)46|0)?7(?:[ \-]?[0-9]{3}){2}[ \-]?[0-9]{2}$/;
 
     if (phone && !phoneRegex.test(phone)) {
+      validInput = false;
       result.errors['phone'] = 'Must be a swedish phone number format';
     }
+
+    if (validInput) {
+      result.successMessage = 'Successfully booked the tickets!';
+    }
+
     return result;
   };
 
