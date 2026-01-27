@@ -43,6 +43,29 @@ function App() {
     }
   };
 
+  const onBookingSubmit = (previousState: unknown, formData: FormData) => {
+    const result = {
+      errors: {} as Record<string, string>,
+    };
+    const nameRegex = /^[A-Za-zÅÄÖåäö]+([ -'][A-Za-zÅÄÖåäö]+)*$/;
+    const name = formData.get('name') as string;
+
+    if (name && !nameRegex.test(name)) {
+      result.errors['name'] =
+        'Must not be empty, include numbers or special characters';
+    }
+
+    const phone = formData.get('phone') as string;
+
+    const phoneRegex =
+      /^(?:(?:\+|00)46|0)?7(?:[ \-]?[0-9]{3}){2}[ \-]?[0-9]{2}$/;
+
+    if (phone && !phoneRegex.test(phone)) {
+      result.errors['phone'] = 'Must be a swedish phone number format';
+    }
+    return result;
+  };
+
   //Fetch bookings and movies from API, once on mount
   useEffect(() => {
     async function getBookingsData() {
@@ -144,6 +167,7 @@ function App() {
       <BookingSummary
         selectedSeatsCount={selectedSeatsCount}
         totalPrice={totalPrice}
+        onBooking={onBookingSubmit}
       />
     </>
   );

@@ -2,17 +2,19 @@ type BookingButtonProps = {
   isClickable: boolean;
   onClick?: () => void;
   children: React.ReactNode;
+  isPending?: boolean;
 };
 
 export const BookingButton = ({
   isClickable,
   onClick,
   children,
+  isPending,
 }: BookingButtonProps) => {
   return (
     <button
       onClick={isClickable ? onClick : undefined}
-      disabled={isClickable ? undefined : true}
+      disabled={isClickable && !isPending ? undefined : true}
       className="book-tickets-btn"
       title={
         isClickable

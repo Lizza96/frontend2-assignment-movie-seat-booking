@@ -23,7 +23,7 @@ body {
 .movie-container select,
 input {
   background-color: #fff;
-  border: 0;
+  border: 1px solid #fff;
   border-radius: 5px;
   font-size: 14px;
   font-family: inherit;
@@ -156,4 +156,12 @@ p.text span {
 form {
   display: grid;
   gap: 1rem;
+}
+
+form .error {
+  color: #ff4343;
+}
+
+form .input-error {
+  border-color: #ff4343;
 }
