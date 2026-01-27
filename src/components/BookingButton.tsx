@@ -1,6 +1,6 @@
 type BookingButtonProps = {
   isClickable: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   children: React.ReactNode;
 };
 
