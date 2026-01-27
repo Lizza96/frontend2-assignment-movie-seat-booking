@@ -20,14 +20,18 @@ body {
   margin: 20px 0;
 }
 
-.movie-container select {
+.movie-container select,
+input {
   background-color: #fff;
   border: 0;
   border-radius: 5px;
   font-size: 14px;
   font-family: inherit;
-  margin-left: 10px;
   padding: 5px 15px;
+}
+
+.movie-container select {
+  margin-left: 10px;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -143,4 +147,13 @@ p.text span {
 
 .book-tickets-btn:disabled {
   cursor: not-allowed;
+}
+
+.form-row {
+  display: grid;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
 }
