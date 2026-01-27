@@ -2,13 +2,13 @@ type SeatProps = {
   children?: React.ReactNode;
   status?: 'occupied' | 'selected' | 'available';
   size?: 'large' | 'small';
-  setSelectedSeatsCount: React.Dispatch<React.SetStateAction<number>>;
-  ticketPrice: number;
-  currentSeatCount: number;
-  setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
-  row: 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
-  seatNumber: number;
-  setSelectedSeats: React.Dispatch<
+  setSelectedSeatsCount?: React.Dispatch<React.SetStateAction<number>>;
+  ticketPrice?: number;
+  currentSeatCount?: number;
+  setTotalPrice?: React.Dispatch<React.SetStateAction<number>>;
+  row?: 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
+  seatNumber?: number;
+  setSelectedSeats?: React.Dispatch<
     React.SetStateAction<{
       a: number[];
       b: number[];
@@ -35,6 +35,18 @@ export const Seat = ({
   const isSelected = status == 'selected';
 
   function handleClick() {
+    if (
+      !currentSeatCount ||
+      !setSelectedSeatsCount ||
+      !ticketPrice ||
+      !setTotalPrice ||
+      !setSelectedSeats ||
+      !row ||
+      !seatNumber
+    ) {
+      return;
+    }
+
     const newCount = isSelected ? currentSeatCount - 1 : currentSeatCount + 1;
 
     setSelectedSeatsCount(() => newCount);
