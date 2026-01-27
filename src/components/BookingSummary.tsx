@@ -25,18 +25,12 @@ export const BookingSummary = ({
         </p>
 
         {!showForm ? (
-          <button
-            onClick={selectedSeatsCount <= 0 ? undefined : displayForm}
-            disabled={selectedSeatsCount <= 0 ? true : undefined}
-            className="book-tickets-btn"
-            title={
-              selectedSeatsCount <= 0
-                ? 'You must select seats before you can book tickets'
-                : 'Book Tickets'
-            }
+          <BookingButton
+            isClickable={selectedSeatsCount > 0}
+            onClick={displayForm}
           >
             Book Tickets
-          </button>
+          </BookingButton>
         ) : null}
       </div>
 
@@ -50,18 +44,12 @@ export const BookingSummary = ({
             <label>Phone number:</label>
             <input />
           </div>
-          <button
-            onClick={selectedSeatsCount <= 0 ? undefined : displayForm}
-            disabled={selectedSeatsCount <= 0 ? true : undefined}
-            className="book-tickets-btn"
-            title={
-              selectedSeatsCount <= 0
-                ? 'You must select seats before you can book tickets'
-                : 'Book Tickets'
-            }
+          <BookingButton
+            isClickable={selectedSeatsCount > 0}
+            onClick={() => alert('Booking')}
           >
             Book {selectedSeatsCount} ticket(s)
-          </button>
+          </BookingButton>
         </form>
       ) : null}
     </>
