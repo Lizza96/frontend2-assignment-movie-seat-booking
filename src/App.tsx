@@ -43,7 +43,7 @@ function App() {
     }
   };
 
-  const onBookingSubmit = (previousState: unknown, formData: FormData) => {
+  const onBookingSubmit = (_: unknown, formData: FormData) => {
     let validInput = true;
     const result = {
       errors: {} as Record<string, string>,
