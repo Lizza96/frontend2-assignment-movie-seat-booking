@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { BookingSummary } from './components/BookingSummary';
 import { MoviePicker } from './components/MoviePicker';
 import { SeatLegend } from './components/SeatLegend';
-import loadBookings from './api/bookings';
+import { loadBookings } from './api/bookings';
 import type { SeatBookings } from './interfaces/SeatBookings';
 import Movie from './models/Movie';
 import loadMovies from './api/movies';
