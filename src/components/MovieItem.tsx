@@ -39,7 +39,16 @@ export const MovieItem = ({
                 setEditableMovie({ ...editableMovie, name: e.target.value });
               }}
             />
-            <input type="number" value={movie.price} onChange={() => {}} />
+            <input
+              type="number"
+              value={editableMovie.price}
+              onChange={(e) => {
+                setEditableMovie({
+                  ...editableMovie,
+                  price: Number(e.target.value),
+                });
+              }}
+            />
           </span>
         </>
       ) : (
