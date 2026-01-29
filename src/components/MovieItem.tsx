@@ -15,18 +15,50 @@ export const MovieItem = ({
 }: MovieItemProps) => {
   const [isEditable, setIsEditable] = useState(false);
 
+  const handleEdit = async () => {
+    setIsEditable(!isEditable);
+    await onEditMovie(movie.id);
+    return true;
+  };
+
+  const onSaveEdit = async () => {
+    return false;
+  };
+
   return (
     <li className="movie-item" key={movie.id}>
-      <span>
-        {movie.name} - {movie.price}kr
-      </span>
-      <span className="action-group">
-        <ActionButton movieId={movie.id} onAction={onEditMovie}>
-          Edit
-        </ActionButton>
-        <ActionButton movieId={movie.id} onAction={onDeleteMovie}>
-          Delete
-        </ActionButton>
+      {isEditable ? (
+        <>
+          <span className="row-group">
+            <input value={movie.name} onChange={() => {}} />
+            <input type="number" value={movie.price} onChange={() => {}} />
+          </span>
+        </>
+      ) : (
+        <span>
+          {movie.name} - {movie.price}kr
+        </span>
+      )}
+      <span className="row-group">
+        {isEditable ? (
+          <>
+            <ActionButton movieId={movie.id} onAction={onSaveEdit}>
+              Save
+            </ActionButton>
+            <ActionButton movieId={movie.id} onAction={onSaveEdit}>
+              Cancel
+            </ActionButton>
+          </>
+        ) : (
+          <>
+            <ActionButton movieId={movie.id} onAction={handleEdit}>
+              Edit
+            </ActionButton>
+            <ActionButton movieId={movie.id} onAction={onDeleteMovie}>
+              Delete
+            </ActionButton>
+          </>
+        )}
       </span>
     </li>
   );
