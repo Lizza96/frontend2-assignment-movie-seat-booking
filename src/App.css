@@ -143,7 +143,10 @@ p.text span {
   border-radius: 5px;
   font-family: inherit;
   cursor: pointer;
-  margin-top: 15px;
+}
+
+.book-tickets-btn {
+  margin-top: 1rem;
 }
 
 .admin-btn {
@@ -190,4 +193,8 @@ li {
 .movie-item {
   padding-block: 0.5rem;
   border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
