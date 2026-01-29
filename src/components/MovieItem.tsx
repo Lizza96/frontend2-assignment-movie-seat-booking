@@ -14,6 +14,7 @@ export const MovieItem = ({
   onDeleteMovie,
 }: MovieItemProps) => {
   const [isEditable, setIsEditable] = useState(false);
+  const [editableMovie, setEditableMovie] = useState(movie);
 
   const handleEnableEdit = () => {
     setIsEditable(true);
@@ -32,7 +33,12 @@ export const MovieItem = ({
       {isEditable ? (
         <>
           <span className="row-group">
-            <input value={movie.name} onChange={() => {}} />
+            <input
+              value={editableMovie.name}
+              onChange={(e) => {
+                setEditableMovie({ ...editableMovie, name: e.target.value });
+              }}
+            />
             <input type="number" value={movie.price} onChange={() => {}} />
           </span>
         </>
