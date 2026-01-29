@@ -11,7 +11,7 @@ import { SeatRow } from './components/SeatRow';
 import type CustomerBooking from './interfaces/CustomerBooking';
 import type { Row } from './interfaces/Row';
 import type { PageType } from './interfaces/PageType';
-import { DeleteButton } from './components/DeleteButton';
+import { ActionButton } from './components/ActionButton';
 
 function App() {
   const [selectedSeatsCount, setSelectedSeatsCount] = useState(0);
@@ -291,11 +291,12 @@ function App() {
         <ul>
           {movies.map((movie: Movie) => (
             <li className="movie-item" key={movie.id}>
-              {movie.name} - {movie.price}kr
-              <DeleteButton
-                movieId={movie.id}
-                onDeleteMovie={handleDeleteMovie}
-              />
+              <span>
+                {movie.name} - {movie.price}kr
+              </span>
+              <ActionButton movieId={movie.id} onAction={handleDeleteMovie}>
+                Delete
+              </ActionButton>
             </li>
           ))}
         </ul>
