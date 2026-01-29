@@ -282,7 +282,7 @@ function App() {
     return isMovieDeleted && isBookingsDeleted;
   };
 
-  const handleEditMovie = async (movieId: string) => {
+  const handleUpdateMovie = async (movieId: string) => {
     console.log('EDIT');
     console.log(movieId);
     return false;
@@ -300,7 +300,7 @@ function App() {
               key={movie.id}
               movie={movie}
               onDeleteMovie={handleDeleteMovie}
-              onEditMovie={handleEditMovie}
+              onSaveEditMovie={handleUpdateMovie}
             />
           ))}
         </ul>
