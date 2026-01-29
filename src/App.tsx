@@ -279,7 +279,6 @@ function App() {
     );
     const isBookingsDeleted = await deleteBooking(movieId);
 
-    console.log(isMovieDeleted && isBookingsDeleted);
     return isMovieDeleted && isBookingsDeleted;
   };
 
