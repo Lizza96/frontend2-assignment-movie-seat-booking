@@ -265,9 +265,18 @@ function App() {
 
   if (currentPage === 'admin') {
     return (
-      <button onClick={toggleAdminPage} className="btn admin-btn">
-        &#8592; BACK
-      </button>
+      <>
+        <button onClick={toggleAdminPage} className="btn admin-btn">
+          &#8592; BACK
+        </button>
+        <ul>
+          {movies.map((movie: Movie) => (
+            <li className="movie-item" key={movie.id}>
+              {movie.name}
+            </li>
+          ))}
+        </ul>
+      </>
     );
   }
 }

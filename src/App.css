@@ -177,3 +177,17 @@ form .error {
 form .input-error {
   border-color: #ff4343;
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.movie-item {
+  padding-block: 0.5rem;
+  border-bottom: 1px solid white;
+}
