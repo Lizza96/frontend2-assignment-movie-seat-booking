@@ -26,7 +26,7 @@ export const MovieItem = ({
   };
 
   return (
-    <li className="movie-item" key={movie.id}>
+    <li className="movie-item">
       {isEditable ? (
         <>
           <span className="row-group">
