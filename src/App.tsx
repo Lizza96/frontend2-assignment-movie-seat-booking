@@ -291,7 +291,7 @@ function App() {
         <ul>
           {movies.map((movie: Movie) => (
             <li className="movie-item" key={movie.id}>
-              {movie.name}{' '}
+              {movie.name} - {movie.price}kr
               <DeleteButton
                 movieId={movie.id}
                 onDeleteMovie={handleDeleteMovie}
