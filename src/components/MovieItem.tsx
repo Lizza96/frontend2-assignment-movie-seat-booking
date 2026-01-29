@@ -4,21 +4,19 @@ import { ActionButton } from './ActionButton';
 
 type MovieItemProps = {
   movie: Movie;
-  onEditMovie: (movieId: string) => Promise<Boolean>;
+  onSaveEditMovie: (movieId: string) => Promise<Boolean>;
   onDeleteMovie: (movieId: string) => Promise<Boolean>;
 };
 
 export const MovieItem = ({
   movie,
-  onEditMovie,
+  onSaveEditMovie,
   onDeleteMovie,
 }: MovieItemProps) => {
   const [isEditable, setIsEditable] = useState(false);
 
-  const handleEdit = async () => {
-    setIsEditable(!isEditable);
-    await onEditMovie(movie.id);
-    return true;
+  const handleEnableEdit = () => {
+    setIsEditable(true);
   };
 
   const onSaveEdit = async () => {
@@ -51,7 +49,7 @@ export const MovieItem = ({
           </>
         ) : (
           <>
-            <ActionButton movieId={movie.id} onAction={handleEdit}>
+            <ActionButton movieId={movie.id} onAction={handleEnableEdit}>
               Edit
             </ActionButton>
             <ActionButton movieId={movie.id} onAction={onDeleteMovie}>

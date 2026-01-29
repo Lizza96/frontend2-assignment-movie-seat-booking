@@ -1,5 +1,5 @@
 type ActionButtonProps = {
-  onAction: (movieId: string) => Promise<Boolean>;
+  onAction: ((movieId: string) => Promise<Boolean>) | (() => void);
   movieId: string;
   className?: string;
   children: React.ReactNode;
