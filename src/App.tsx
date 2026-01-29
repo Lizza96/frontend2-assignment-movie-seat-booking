@@ -155,14 +155,14 @@ function App() {
     return result;
   };
 
-  const changeToAdmin = () => {
-    setCurrentPage('admin');
+  const toggleAdminPage = () => {
+    setCurrentPage(currentPage == 'admin' ? 'booking' : 'admin');
   };
 
   if (currentPage === 'booking') {
     return (
       <>
-        <button onClick={changeToAdmin} className="btn admin-btn">
+        <button onClick={toggleAdminPage} className="btn admin-btn">
           TO ADMIN
         </button>
         <MoviePicker movies={movies} onChangeMovie={changeMovie} />
@@ -264,7 +264,11 @@ function App() {
   }
 
   if (currentPage === 'admin') {
-    return <p>ADMIN</p>;
+    return (
+      <button onClick={toggleAdminPage} className="btn admin-btn">
+        &#8592; BACK
+      </button>
+    );
   }
 }
 
