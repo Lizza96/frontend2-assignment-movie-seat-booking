@@ -136,7 +136,8 @@ p.text span {
   justify-items: center;
 }
 
-.book-tickets-btn {
+.book-tickets-btn,
+.btn {
   padding: 5px 15px;
   border: none;
   border-radius: 5px;

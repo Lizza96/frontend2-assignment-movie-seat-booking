@@ -5,11 +5,12 @@ type BookingSummaryProps = {
   selectedSeatsCount: number;
   totalPrice: number;
   onBooking: (
-    previousState: unknown,
+    _: unknown,
     formData: FormData,
-  ) => {
+  ) => Promise<{
     errors: Record<string, string>;
-  };
+    successMessage: string;
+  }>;
 };
 
 export const BookingSummary = ({
