@@ -282,6 +282,10 @@ function App() {
     return isMovieDeleted && isBookingsDeleted;
   };
 
+  const handleEditMovie = async (movieId: string) => {
+    return false;
+  };
+
   if (currentPage === 'admin') {
     return (
       <>
@@ -294,9 +298,14 @@ function App() {
               <span>
                 {movie.name} - {movie.price}kr
               </span>
-              <ActionButton movieId={movie.id} onAction={handleDeleteMovie}>
-                Delete
-              </ActionButton>
+              <span className="action-group">
+                <ActionButton movieId={movie.id} onAction={handleEditMovie}>
+                  Edit
+                </ActionButton>
+                <ActionButton movieId={movie.id} onAction={handleDeleteMovie}>
+                  Delete
+                </ActionButton>
+              </span>
             </li>
           ))}
         </ul>

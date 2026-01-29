@@ -198,3 +198,8 @@ li {
   align-items: center;
   gap: 1rem;
 }
+
+.action-group {
+  display: flex;
+  gap: 0.5rem;
+}
