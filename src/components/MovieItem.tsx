@@ -23,9 +23,9 @@ export const MovieItem = ({
   const onSaveEdit = async () => {
     return false;
   };
-  const onCancelEdit = async () => {
+  const onCancelEdit = () => {
     setIsEditable(false);
-    return false;
+    setEditableMovie(movie);
   };
 
   return (
