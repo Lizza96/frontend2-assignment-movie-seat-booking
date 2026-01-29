@@ -155,10 +155,16 @@ function App() {
     return result;
   };
 
+  const changeToAdmin = () => {
+    setCurrentPage('admin');
+  };
+
   if (currentPage === 'booking') {
     return (
       <>
-        <button className="btn admin-btn">TO ADMIN</button>
+        <button onClick={changeToAdmin} className="btn admin-btn">
+          TO ADMIN
+        </button>
         <MoviePicker movies={movies} onChangeMovie={changeMovie} />
 
         <SeatLegend />
@@ -255,6 +261,10 @@ function App() {
         </button>
       </>
     );
+  }
+
+  if (currentPage === 'admin') {
+    return <p>ADMIN</p>;
   }
 }
 
