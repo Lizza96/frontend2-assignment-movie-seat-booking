@@ -22,6 +22,10 @@ export const MovieItem = ({
   const onSaveEdit = async () => {
     return false;
   };
+  const onCancelEdit = async () => {
+    setIsEditable(false);
+    return false;
+  };
 
   return (
     <li className="movie-item">
@@ -43,7 +47,7 @@ export const MovieItem = ({
             <ActionButton movieId={movie.id} onAction={onSaveEdit}>
               Save
             </ActionButton>
-            <ActionButton movieId={movie.id} onAction={onSaveEdit}>
+            <ActionButton movieId={movie.id} onAction={onCancelEdit}>
               Cancel
             </ActionButton>
           </>
