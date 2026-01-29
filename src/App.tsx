@@ -11,7 +11,7 @@ import { SeatRow } from './components/SeatRow';
 import type CustomerBooking from './interfaces/CustomerBooking';
 import type { Row } from './interfaces/Row';
 import type { PageType } from './interfaces/PageType';
-import { ActionButton } from './components/ActionButton';
+import { MovieItem } from './components/MovieItem';
 
 function App() {
   const [selectedSeatsCount, setSelectedSeatsCount] = useState(0);
@@ -283,6 +283,8 @@ function App() {
   };
 
   const handleEditMovie = async (movieId: string) => {
+    console.log('EDIT');
+    console.log(movieId);
     return false;
   };
 
@@ -294,19 +296,12 @@ function App() {
         </button>
         <ul>
           {movies.map((movie: Movie) => (
-            <li className="movie-item" key={movie.id}>
-              <span>
-                {movie.name} - {movie.price}kr
-              </span>
-              <span className="action-group">
-                <ActionButton movieId={movie.id} onAction={handleEditMovie}>
-                  Edit
-                </ActionButton>
-                <ActionButton movieId={movie.id} onAction={handleDeleteMovie}>
-                  Delete
-                </ActionButton>
-              </span>
-            </li>
+            <MovieItem
+              key={movie.id}
+              movie={movie}
+              onDeleteMovie={handleDeleteMovie}
+              onEditMovie={handleEditMovie}
+            />
           ))}
         </ul>
       </>
