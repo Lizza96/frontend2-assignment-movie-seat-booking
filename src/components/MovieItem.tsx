@@ -36,7 +36,10 @@ export const MovieItem = ({
             <input
               value={editableMovie.name}
               onChange={(e) => {
-                setEditableMovie({ ...editableMovie, name: e.target.value });
+                setEditableMovie({
+                  ...editableMovie,
+                  name: e.target.value.trim(),
+                });
               }}
             />
             <input
