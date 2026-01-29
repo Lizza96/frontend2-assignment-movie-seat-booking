@@ -3,14 +3,15 @@ import { useEffect, useState } from 'react';
 import { BookingSummary } from './components/BookingSummary';
 import { MoviePicker } from './components/MoviePicker';
 import { SeatLegend } from './components/SeatLegend';
-import { loadBookings, saveBookingData } from './api/bookings';
+import { deleteBooking, loadBookings, saveBookingData } from './api/bookings';
 import type { SeatBookings } from './interfaces/SeatBookings';
 import Movie from './models/Movie';
-import loadMovies from './api/movies';
+import { deleteMovie, loadMovies } from './api/movies';
 import { SeatRow } from './components/SeatRow';
 import type CustomerBooking from './interfaces/CustomerBooking';
 import type { Row } from './interfaces/Row';
 import type { PageType } from './interfaces/PageType';
+import { DeleteButton } from './components/DeleteButton';
 
 function App() {
   const [selectedSeatsCount, setSelectedSeatsCount] = useState(0);
@@ -242,6 +243,7 @@ function App() {
     );
   }
 
+  //THANK YOU PAGE
   const backToBooking = () => {
     setSelectedMovie(movies[0]);
     resetStates();
@@ -263,6 +265,24 @@ function App() {
     );
   }
 
+  // ADMIN PAGE
+  const handleDeleteMovie = async (movieId: string) => {
+    //Delete from Movie data base
+    setMovies((currentMovies) =>
+      currentMovies.filter((movie) => movie.id != movieId),
+    );
+    const isMovieDeleted = await deleteMovie(movieId);
+
+    //Delete from Bookings data base
+    setBookings((currentBookings) =>
+      currentBookings.filter((booking) => booking.id != movieId),
+    );
+    const isBookingsDeleted = await deleteBooking(movieId);
+
+    console.log(isMovieDeleted && isBookingsDeleted);
+    return isMovieDeleted && isBookingsDeleted;
+  };
+
   if (currentPage === 'admin') {
     return (
       <>
@@ -272,7 +292,11 @@ function App() {
         <ul>
           {movies.map((movie: Movie) => (
             <li className="movie-item" key={movie.id}>
-              {movie.name}
+              {movie.name}{' '}
+              <DeleteButton
+                movieId={movie.id}
+                onDeleteMovie={handleDeleteMovie}
+              />
             </li>
           ))}
         </ul>

@@ -3,7 +3,7 @@ import type { MovieEntity } from '../interfaces/MovieEntity';
 
 const dbUrl = 'http://localhost:3000/movies';
 
-export default async function loadMovies(): Promise<Array<Movie>> {
+export async function loadMovies(): Promise<Array<Movie>> {
   const response = await fetch(dbUrl);
 
   const data = await response.json();
@@ -14,4 +14,15 @@ export default async function loadMovies(): Promise<Array<Movie>> {
   );
 
   return movies;
+}
+
+export async function deleteMovie(id: string): Promise<Boolean> {
+  const response = await fetch(`${dbUrl}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  return response.ok;
 }

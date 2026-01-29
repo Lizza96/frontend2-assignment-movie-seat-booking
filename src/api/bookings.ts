@@ -35,3 +35,14 @@ export async function saveBookingData(
     return false;
   }
 }
+
+export async function deleteBooking(id: string): Promise<Boolean> {
+  const response = await fetch(`${dbUrl}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  return response.ok;
+}
