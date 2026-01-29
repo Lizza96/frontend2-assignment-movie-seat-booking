@@ -158,6 +158,7 @@ function App() {
   if (currentPage === 'booking') {
     return (
       <>
+        <button className="btn admin-btn">TO ADMIN</button>
         <MoviePicker movies={movies} onChangeMovie={changeMovie} />
 
         <SeatLegend />

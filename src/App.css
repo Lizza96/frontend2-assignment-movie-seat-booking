@@ -146,6 +146,17 @@ p.text span {
   margin-top: 15px;
 }
 
+.admin-btn {
+  margin-bottom: 4rem;
+  background-color: #58cad4;
+  font-weight: 700;
+  padding: 0.5rem 2rem;
+}
+
+.admin-btn:hover {
+  background-color: #6feaf6;
+}
+
 .book-tickets-btn:disabled {
   cursor: not-allowed;
 }
