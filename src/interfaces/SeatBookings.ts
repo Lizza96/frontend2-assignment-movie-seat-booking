@@ -1,5 +1,3 @@
-import type { Booking } from './Booking';
+import type MovieBooking from './MovieBooking';
 
-export interface SeatBookings {
-  [movieName: string]: Record<string, Booking[]>;
-}
+export type SeatBookings = MovieBooking[];

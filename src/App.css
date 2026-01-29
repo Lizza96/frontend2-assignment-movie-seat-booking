@@ -20,14 +20,18 @@ body {
   margin: 20px 0;
 }
 
-.movie-container select {
+.movie-container select,
+input {
   background-color: #fff;
-  border: 0;
+  border: 1px solid #fff;
   border-radius: 5px;
   font-size: 14px;
   font-family: inherit;
-  margin-left: 10px;
   padding: 5px 15px;
+}
+
+.movie-container select {
+  margin-left: 10px;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -125,4 +129,40 @@ p.text {
 
 p.text span {
   color: #6feaf6;
+}
+
+.booking-wrapper {
+  display: grid;
+  justify-items: center;
+}
+
+.book-tickets-btn,
+.btn {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.book-tickets-btn:disabled {
+  cursor: not-allowed;
+}
+
+.form-row {
+  display: grid;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+form .error {
+  color: #ff4343;
+}
+
+form .input-error {
+  border-color: #ff4343;
 }
