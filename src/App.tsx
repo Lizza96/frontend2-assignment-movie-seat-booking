@@ -6,12 +6,13 @@ import { SeatLegend } from './components/SeatLegend';
 import { deleteBooking, loadBookings, saveBookingData } from './api/bookings';
 import type { SeatBookings } from './interfaces/SeatBookings';
 import Movie from './models/Movie';
-import { deleteMovie, loadMovies } from './api/movies';
+import { deleteMovie, loadMovies, updateMovie } from './api/movies';
 import { SeatRow } from './components/SeatRow';
 import type CustomerBooking from './interfaces/CustomerBooking';
 import type { Row } from './interfaces/Row';
 import type { PageType } from './interfaces/PageType';
 import { MovieItem } from './components/MovieItem';
+import type { MovieEntity } from './interfaces/MovieEntity';
 
 function App() {
   const [selectedSeatsCount, setSelectedSeatsCount] = useState(0);
@@ -282,10 +283,45 @@ function App() {
     return isMovieDeleted && isBookingsDeleted;
   };
 
-  const handleUpdateMovie = async (movieId: string) => {
-    console.log('EDIT');
-    console.log(movieId);
-    return false;
+  const handleUpdateMovie = async (
+    movieId: string,
+    updatedData: Partial<MovieEntity>,
+  ) => {
+    const hasSavedToDatabase = await updateMovie(movieId, updatedData);
+
+    if (!hasSavedToDatabase) {
+      return false;
+    }
+
+    let useStateData;
+
+    //filter out 'title' key and replace with 'name' key to match useState keys instead of data base keys
+    if (updatedData.title) {
+      const { title, ...filteredData } = updatedData;
+      useStateData = {
+        ...filteredData,
+        name: updatedData.title,
+      };
+    } else {
+      useStateData = {
+        ...updatedData,
+      };
+    }
+
+    //update useState
+    setMovies(
+      movies.map((movie) => {
+        if (movie.id === movieId) {
+          return {
+            ...movie,
+            ...useStateData,
+          };
+        }
+        return movie;
+      }),
+    );
+
+    return hasSavedToDatabase;
   };
 
   if (currentPage === 'admin') {

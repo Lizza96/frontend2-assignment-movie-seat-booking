@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import type Movie from '../models/Movie';
 import { ActionButton } from './ActionButton';
+import type { MovieEntity } from '../interfaces/MovieEntity';
 
 type MovieItemProps = {
   movie: Movie;
-  onSaveEditMovie: (movieId: string) => Promise<Boolean>;
+  onSaveEditMovie: (
+    movieId: string,
+    updatedData: Partial<MovieEntity>,
+  ) => Promise<Boolean>;
   onDeleteMovie: (movieId: string) => Promise<Boolean>;
 };
 
@@ -21,7 +25,27 @@ export const MovieItem = ({
   };
 
   const onSaveEdit = async () => {
-    return false;
+    const changedData: Partial<MovieEntity> = {};
+
+    if (editableMovie.name != movie.name) {
+      changedData.title = editableMovie.name;
+    }
+
+    if (editableMovie.price != movie.price) {
+      changedData.price = editableMovie.price;
+    }
+
+    if (Object.keys(changedData).length == 0) {
+      //No change
+      return true;
+    }
+
+    const hasMovieUpdated = await onSaveEditMovie(movie.id, changedData);
+
+    if (hasMovieUpdated) {
+      setIsEditable(false);
+    }
+    return hasMovieUpdated;
   };
   const onCancelEdit = () => {
     setIsEditable(false);

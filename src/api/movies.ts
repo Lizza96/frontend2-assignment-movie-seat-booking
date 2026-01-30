@@ -26,3 +26,18 @@ export async function deleteMovie(id: string): Promise<Boolean> {
 
   return response.ok;
 }
+
+export async function updateMovie(
+  id: string,
+  updatedData: Partial<MovieEntity>,
+): Promise<Boolean> {
+  const response = await fetch(`${dbUrl}/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(updatedData),
+  });
+
+  return response.ok;
+}
