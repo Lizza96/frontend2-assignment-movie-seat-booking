@@ -3,7 +3,8 @@ import type MovieBooking from '../interfaces/MovieBooking';
 import type { Row } from '../interfaces/Row';
 import type { SeatBookings } from '../interfaces/SeatBookings';
 
-const dbUrl = 'http://localhost:3000/bookings';
+const dbUrl =
+  'https://my-json-server.typicode.com/Lizza96/frontend2-assignment-movie-seat-booking/bookings';
 
 export async function loadBookings(): Promise<SeatBookings> {
   const response = await fetch(dbUrl);
