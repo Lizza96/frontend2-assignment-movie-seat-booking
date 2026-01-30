@@ -282,10 +282,6 @@ function App() {
     const isMovieDeleted = await deleteMovie(movieId);
 
     if (selectedMovie?.id === movieId) {
-      const newSelectedMovie = movies.find((movie) => {
-        movie.id != movieId;
-      });
-
       setSelectedMovie(movies.find((movie) => movie.id != movieId));
     }
 
