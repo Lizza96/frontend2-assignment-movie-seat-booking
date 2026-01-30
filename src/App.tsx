@@ -31,6 +31,7 @@ function App() {
     {} as Movie,
   );
   const [currentPage, setCurrentPage] = useState<PageType>('booking');
+  const [isLoading, setIsLoading] = useState(true);
 
   const resetStates = () => {
     setTotalPrice(0);
@@ -75,16 +76,19 @@ function App() {
         await getBookingsData();
       } catch (error) {
         console.error('Error fetching data:', error);
+      } finally {
+        setIsLoading(false);
       }
     })();
   }, []);
 
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
+
   const bookingsForSelectedMovie = bookings.find(
     (booking) => booking.id === selectedMovie?.id,
   );
-  if (bookingsForSelectedMovie == undefined) {
-    return <h2>Loading...</h2>;
-  }
 
   const onBookingSubmit = async (_: unknown, formData: FormData) => {
     let validInput = true;
@@ -174,79 +178,82 @@ function App() {
         <button onClick={toggleAdminPage} className="btn admin-btn">
           TO ADMIN
         </button>
-        <MoviePicker movies={movies} onChangeMovie={changeMovie} />
-
-        <SeatLegend />
-
-        <div className="container">
-          <div className="screen"></div>
-          <SeatRow
-            row="a"
-            rowBookings={bookingsForSelectedMovie['a'] ?? []}
-            setSelectedSeatsCount={setSelectedSeatsCount}
-            ticketPrice={selectedMovie?.price}
-            currentSeatCount={selectedSeatsCount}
-            setTotalPrice={setTotalPrice}
-            setSelectedSeats={setSelectedSeats}
-            rowSelection={selectedSeats['a']}
-          />
-          <SeatRow
-            row="b"
-            rowBookings={bookingsForSelectedMovie['b'] ?? []}
-            setSelectedSeatsCount={setSelectedSeatsCount}
-            ticketPrice={selectedMovie?.price}
-            currentSeatCount={selectedSeatsCount}
-            setTotalPrice={setTotalPrice}
-            setSelectedSeats={setSelectedSeats}
-            rowSelection={selectedSeats['b']}
-          />
-          <SeatRow
-            row="c"
-            rowBookings={bookingsForSelectedMovie['c'] ?? []}
-            setSelectedSeatsCount={setSelectedSeatsCount}
-            ticketPrice={selectedMovie?.price}
-            currentSeatCount={selectedSeatsCount}
-            setTotalPrice={setTotalPrice}
-            setSelectedSeats={setSelectedSeats}
-            rowSelection={selectedSeats['c']}
-          />
-          <SeatRow
-            row="d"
-            rowBookings={bookingsForSelectedMovie['d'] ?? []}
-            setSelectedSeatsCount={setSelectedSeatsCount}
-            ticketPrice={selectedMovie?.price}
-            currentSeatCount={selectedSeatsCount}
-            setTotalPrice={setTotalPrice}
-            setSelectedSeats={setSelectedSeats}
-            rowSelection={selectedSeats['d']}
-          />
-          <SeatRow
-            row="e"
-            rowBookings={bookingsForSelectedMovie['e'] ?? []}
-            setSelectedSeatsCount={setSelectedSeatsCount}
-            ticketPrice={selectedMovie?.price}
-            currentSeatCount={selectedSeatsCount}
-            setTotalPrice={setTotalPrice}
-            setSelectedSeats={setSelectedSeats}
-            rowSelection={selectedSeats['e']}
-          />
-          <SeatRow
-            row="f"
-            rowBookings={bookingsForSelectedMovie['f'] ?? []}
-            setSelectedSeatsCount={setSelectedSeatsCount}
-            ticketPrice={selectedMovie?.price}
-            currentSeatCount={selectedSeatsCount}
-            setTotalPrice={setTotalPrice}
-            setSelectedSeats={setSelectedSeats}
-            rowSelection={selectedSeats['f']}
-          />
-        </div>
-
-        <BookingSummary
-          selectedSeatsCount={selectedSeatsCount}
-          totalPrice={totalPrice}
-          onBooking={onBookingSubmit}
-        />
+        {selectedMovie == undefined || bookingsForSelectedMovie == undefined ? (
+          <h2>No movies to book at the moment</h2>
+        ) : (
+          <>
+            <MoviePicker movies={movies} onChangeMovie={changeMovie} />
+            <SeatLegend />
+            <div className="container">
+              <div className="screen"></div>
+              <SeatRow
+                row="a"
+                rowBookings={bookingsForSelectedMovie['a'] ?? []}
+                setSelectedSeatsCount={setSelectedSeatsCount}
+                ticketPrice={selectedMovie?.price}
+                currentSeatCount={selectedSeatsCount}
+                setTotalPrice={setTotalPrice}
+                setSelectedSeats={setSelectedSeats}
+                rowSelection={selectedSeats['a']}
+              />
+              <SeatRow
+                row="b"
+                rowBookings={bookingsForSelectedMovie['b'] ?? []}
+                setSelectedSeatsCount={setSelectedSeatsCount}
+                ticketPrice={selectedMovie?.price}
+                currentSeatCount={selectedSeatsCount}
+                setTotalPrice={setTotalPrice}
+                setSelectedSeats={setSelectedSeats}
+                rowSelection={selectedSeats['b']}
+              />
+              <SeatRow
+                row="c"
+                rowBookings={bookingsForSelectedMovie['c'] ?? []}
+                setSelectedSeatsCount={setSelectedSeatsCount}
+                ticketPrice={selectedMovie?.price}
+                currentSeatCount={selectedSeatsCount}
+                setTotalPrice={setTotalPrice}
+                setSelectedSeats={setSelectedSeats}
+                rowSelection={selectedSeats['c']}
+              />
+              <SeatRow
+                row="d"
+                rowBookings={bookingsForSelectedMovie['d'] ?? []}
+                setSelectedSeatsCount={setSelectedSeatsCount}
+                ticketPrice={selectedMovie?.price}
+                currentSeatCount={selectedSeatsCount}
+                setTotalPrice={setTotalPrice}
+                setSelectedSeats={setSelectedSeats}
+                rowSelection={selectedSeats['d']}
+              />
+              <SeatRow
+                row="e"
+                rowBookings={bookingsForSelectedMovie['e'] ?? []}
+                setSelectedSeatsCount={setSelectedSeatsCount}
+                ticketPrice={selectedMovie?.price}
+                currentSeatCount={selectedSeatsCount}
+                setTotalPrice={setTotalPrice}
+                setSelectedSeats={setSelectedSeats}
+                rowSelection={selectedSeats['e']}
+              />
+              <SeatRow
+                row="f"
+                rowBookings={bookingsForSelectedMovie['f'] ?? []}
+                setSelectedSeatsCount={setSelectedSeatsCount}
+                ticketPrice={selectedMovie?.price}
+                currentSeatCount={selectedSeatsCount}
+                setTotalPrice={setTotalPrice}
+                setSelectedSeats={setSelectedSeats}
+                rowSelection={selectedSeats['f']}
+              />
+            </div>
+            <BookingSummary
+              selectedSeatsCount={selectedSeatsCount}
+              totalPrice={totalPrice}
+              onBooking={onBookingSubmit}
+            />
+          </>
+        )}
       </>
     );
   }
