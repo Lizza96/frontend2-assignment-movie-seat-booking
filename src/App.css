@@ -143,7 +143,32 @@ p.text span {
   border-radius: 5px;
   font-family: inherit;
   cursor: pointer;
-  margin-top: 15px;
+}
+
+.book-tickets-btn {
+  margin-top: 1rem;
+}
+
+.admin-btn {
+  margin-bottom: 4rem;
+  background-color: #58cad4;
+  font-weight: 700;
+  padding: 0.5rem 2rem;
+}
+
+.admin-add-btn,
+.admin-save-btn {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.admin-save-btn {
+  margin-bottom: 25px;
+}
+
+.admin-btn:hover {
+  background-color: #6feaf6;
 }
 
 .book-tickets-btn:disabled {
@@ -160,9 +185,46 @@ form {
 }
 
 form .error {
+  min-height: 25px;
   color: #ff4343;
 }
 
 form .input-error {
   border-color: #ff4343;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.movie-list {
+  margin-top: 1rem;
+}
+
+li {
+  list-style: none;
+}
+
+.movie-item {
+  padding-block: 0.5rem;
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.row-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.row-group.thin-row {
+  align-items: end;
+}
+
+.column {
+  display: grid;
+  justify-items: start;
 }

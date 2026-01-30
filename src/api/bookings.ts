@@ -1,4 +1,5 @@
 import type CustomerBooking from '../interfaces/CustomerBooking';
+import type MovieBooking from '../interfaces/MovieBooking';
 import type { Row } from '../interfaces/Row';
 import type { SeatBookings } from '../interfaces/SeatBookings';
 
@@ -15,7 +16,7 @@ export async function loadBookings(): Promise<SeatBookings> {
 export async function saveBookingData(
   movieId: string,
   data: Record<Row, CustomerBooking[]>,
-): Promise<Boolean> {
+): Promise<boolean> {
   try {
     const response = await fetch(`${dbUrl}/${movieId}`, {
       method: 'PATCH',
@@ -25,13 +26,32 @@ export async function saveBookingData(
       body: JSON.stringify(data),
     });
 
-    if (!response.ok) {
-      return false;
-    }
-
-    return true;
+    return response.ok;
   } catch (ex: unknown) {
     console.log(ex);
     return false;
   }
+}
+
+export async function deleteBooking(id: string): Promise<boolean> {
+  const response = await fetch(`${dbUrl}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  return response.ok;
+}
+
+export async function createBooking(data: MovieBooking) {
+  const response = await fetch(`${dbUrl}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+
+  return response.ok;
 }
