@@ -58,6 +58,7 @@ export const MovieItem = ({
         <>
           <span className="row-group">
             <input
+              type="text"
               value={editableMovie.name}
               onChange={(e) => {
                 setEditableMovie({

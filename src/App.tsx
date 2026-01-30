@@ -3,20 +3,40 @@ import { useEffect, useState } from 'react';
 import { BookingSummary } from './components/BookingSummary';
 import { MoviePicker } from './components/MoviePicker';
 import { SeatLegend } from './components/SeatLegend';
-import { deleteBooking, loadBookings, saveBookingData } from './api/bookings';
+import {
+  createBooking,
+  deleteBooking,
+  loadBookings,
+  saveBookingData,
+} from './api/bookings';
 import type { SeatBookings } from './interfaces/SeatBookings';
 import Movie from './models/Movie';
-import { deleteMovie, loadMovies, updateMovie } from './api/movies';
+import {
+  createMovie,
+  deleteMovie,
+  loadMovies,
+  updateMovie,
+} from './api/movies';
 import { SeatRow } from './components/SeatRow';
 import type CustomerBooking from './interfaces/CustomerBooking';
 import type { Row } from './interfaces/Row';
 import type { PageType } from './interfaces/PageType';
 import { MovieItem } from './components/MovieItem';
 import type { MovieEntity } from './interfaces/MovieEntity';
+import { AddMovie } from './components/AddMovie';
+import type MovieBooking from './interfaces/MovieBooking';
 
 function App() {
   const [selectedSeatsCount, setSelectedSeatsCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  // const initialSelectedSeats: Record<Row, number[]> = {
+  //   a: [],
+  //   b: [],
+  //   c: [],
+  //   d: [],
+  //   e: [],
+  //   f: [],
+  // };
   const [selectedSeats, setSelectedSeats] = useState<Record<Row, number[]>>({
     a: [],
     b: [],
@@ -342,13 +362,79 @@ function App() {
     return hasSavedToDatabase;
   };
 
+  const handleAddMoviesubmit = async (_: unknown, formData: FormData) => {
+    const movieTitle = formData.get('title') as string;
+    const ticketPrice = formData.get('price') as string;
+
+    const result = {
+      errors: {} as Record<string, string>,
+      fieldData: {
+        title: movieTitle,
+        price: ticketPrice,
+      },
+    };
+
+    const isAlreadyExisting = movies.some(
+      (movie) => movie.name.toLowerCase() == movieTitle.toLowerCase(),
+    );
+
+    if (isAlreadyExisting) {
+      result.errors['title'] = 'This movie title already exists';
+
+      return result;
+    }
+
+    const nextId =
+      movies.reduce((max, movie) => {
+        const id = Number(movie.id);
+        return id > max ? id : max;
+      }, 0) + 1;
+
+    //POST to movie database
+    await createMovie({
+      id: nextId.toString(),
+      title: movieTitle,
+      price: Number(ticketPrice),
+    });
+
+    //update movies useState
+    setMovies([
+      ...movies,
+      {
+        id: nextId.toString(),
+        name: movieTitle,
+        price: Number(ticketPrice),
+      },
+    ]);
+
+    //Create "empty" booking POST for created movie
+    const newMovieBooking: MovieBooking = {
+      id: nextId.toString(),
+      a: [],
+      b: [],
+      c: [],
+      d: [],
+      e: [],
+      f: [],
+    };
+    await createBooking(newMovieBooking);
+
+    //update booking useState
+    setBookings([...bookings, newMovieBooking]);
+
+    return result;
+  };
+
   if (currentPage === 'admin') {
     return (
       <>
-        <button onClick={toggleAdminPage} className="btn admin-btn">
-          &#8592; BACK
-        </button>
-        <ul>
+        <div className="column">
+          <button onClick={toggleAdminPage} className="btn admin-btn">
+            &#8592; BACK
+          </button>
+          <AddMovie onSubmit={handleAddMoviesubmit} />
+        </div>
+        <ul className="movie-list">
           {movies.map((movie: Movie) => (
             <MovieItem
               key={movie.id}

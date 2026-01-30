@@ -41,3 +41,15 @@ export async function updateMovie(
 
   return response.ok;
 }
+
+export async function createMovie(data: Partial<MovieEntity>) {
+  const response = await fetch(`${dbUrl}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+
+  return response.ok;
+}

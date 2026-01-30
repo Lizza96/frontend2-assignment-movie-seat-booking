@@ -156,6 +156,17 @@ p.text span {
   padding: 0.5rem 2rem;
 }
 
+.admin-add-btn,
+.admin-save-btn {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.admin-save-btn {
+  margin-bottom: 25px;
+}
+
 .admin-btn:hover {
   background-color: #6feaf6;
 }
@@ -174,6 +185,7 @@ form {
 }
 
 form .error {
+  min-height: 25px;
   color: #ff4343;
 }
 
@@ -184,6 +196,10 @@ form .input-error {
 ul {
   margin: 0;
   padding: 0;
+}
+
+.movie-list {
+  margin-top: 1rem;
 }
 
 li {
@@ -202,4 +218,13 @@ li {
 .row-group {
   display: flex;
   gap: 0.5rem;
+}
+
+.row-group.thin-row {
+  align-items: end;
+}
+
+.column {
+  display: grid;
+  justify-items: start;
 }
