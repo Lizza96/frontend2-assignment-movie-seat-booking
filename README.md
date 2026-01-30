@@ -1,4 +1,5 @@
 # Fronend 2 inlämningsuppgift - Alicia Petersson
+Länk till Github Pages: https://lizza96.github.io/frontend2-assignment-movie-seat-booking/
 
 Jag "hostade" databasen via [my-json-server](https://my-json-server.typicode.com/)
 
