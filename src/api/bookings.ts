@@ -4,10 +4,16 @@ import type { Row } from '../interfaces/Row';
 import type { SeatBookings } from '../interfaces/SeatBookings';
 
 const dbUrl =
-  'https://my-json-server.typicode.com/Lizza96/frontend2-assignment-movie-seat-booking/bookings';
+  'https://my-json-server.typicode.com/Lizza96/frontend2-db/bookings';
 
 export async function loadBookings(): Promise<SeatBookings> {
-  const response = await fetch(dbUrl);
+  const response = await fetch(dbUrl, {
+    method: 'GET',
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      Accept: 'application/json;odata.metadata=full',
+    },
+  });
 
   const data: SeatBookings = await response.json();
 
@@ -22,6 +28,8 @@ export async function saveBookingData(
     const response = await fetch(`${dbUrl}/${movieId}`, {
       method: 'PATCH',
       headers: {
+        'Access-Control-Allow-Origin': '*',
+        Accept: 'application/json;odata.metadata=full',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
@@ -38,6 +46,8 @@ export async function deleteBooking(id: string): Promise<boolean> {
   const response = await fetch(`${dbUrl}/${id}`, {
     method: 'DELETE',
     headers: {
+      'Access-Control-Allow-Origin': '*',
+      Accept: 'application/json;odata.metadata=full',
       'Content-Type': 'application/json',
     },
   });
@@ -49,6 +59,8 @@ export async function createBooking(data: MovieBooking) {
   const response = await fetch(`${dbUrl}`, {
     method: 'POST',
     headers: {
+      'Access-Control-Allow-Origin': '*',
+      Accept: 'application/json;odata.metadata=full',
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
