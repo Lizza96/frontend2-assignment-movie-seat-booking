@@ -6,7 +6,7 @@ type SeatRowProps = {
   rowBookings: CustomerBooking[];
   seatsPerRow?: number;
   setSelectedSeatsCount: React.Dispatch<React.SetStateAction<number>>;
-  ticketPrice: number;
+  ticketPrice: number | undefined;
   currentSeatCount: number;
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
   setSelectedSeats: React.Dispatch<

@@ -27,7 +27,9 @@ function App() {
   });
   const [bookings, setBookings] = useState([] as SeatBookings);
   const [movies, setMovies] = useState(Array<Movie>);
-  const [selectedMovie, setSelectedMovie] = useState({} as Movie);
+  const [selectedMovie, setSelectedMovie] = useState<Movie | undefined>(
+    {} as Movie,
+  );
   const [currentPage, setCurrentPage] = useState<PageType>('booking');
 
   const resetStates = () => {
@@ -78,7 +80,7 @@ function App() {
   }, []);
 
   const bookingsForSelectedMovie = bookings.find(
-    (booking) => booking.id === selectedMovie.id,
+    (booking) => booking.id === selectedMovie?.id,
   );
   if (bookingsForSelectedMovie == undefined) {
     return <h2>Loading...</h2>;
@@ -107,6 +109,11 @@ function App() {
     if (inputPhone && !phoneRegex.test(inputPhone)) {
       validInput = false;
       result.errors['phone'] = 'Must be a swedish phone number format';
+    }
+
+    if (!selectedMovie) {
+      result.errors['general'] = 'No selected movie';
+      return result;
     }
 
     if (!validInput) return result;
@@ -177,7 +184,7 @@ function App() {
             row="a"
             rowBookings={bookingsForSelectedMovie['a'] ?? []}
             setSelectedSeatsCount={setSelectedSeatsCount}
-            ticketPrice={selectedMovie.price}
+            ticketPrice={selectedMovie?.price}
             currentSeatCount={selectedSeatsCount}
             setTotalPrice={setTotalPrice}
             setSelectedSeats={setSelectedSeats}
@@ -187,7 +194,7 @@ function App() {
             row="b"
             rowBookings={bookingsForSelectedMovie['b'] ?? []}
             setSelectedSeatsCount={setSelectedSeatsCount}
-            ticketPrice={selectedMovie.price}
+            ticketPrice={selectedMovie?.price}
             currentSeatCount={selectedSeatsCount}
             setTotalPrice={setTotalPrice}
             setSelectedSeats={setSelectedSeats}
@@ -197,7 +204,7 @@ function App() {
             row="c"
             rowBookings={bookingsForSelectedMovie['c'] ?? []}
             setSelectedSeatsCount={setSelectedSeatsCount}
-            ticketPrice={selectedMovie.price}
+            ticketPrice={selectedMovie?.price}
             currentSeatCount={selectedSeatsCount}
             setTotalPrice={setTotalPrice}
             setSelectedSeats={setSelectedSeats}
@@ -207,7 +214,7 @@ function App() {
             row="d"
             rowBookings={bookingsForSelectedMovie['d'] ?? []}
             setSelectedSeatsCount={setSelectedSeatsCount}
-            ticketPrice={selectedMovie.price}
+            ticketPrice={selectedMovie?.price}
             currentSeatCount={selectedSeatsCount}
             setTotalPrice={setTotalPrice}
             setSelectedSeats={setSelectedSeats}
@@ -217,7 +224,7 @@ function App() {
             row="e"
             rowBookings={bookingsForSelectedMovie['e'] ?? []}
             setSelectedSeatsCount={setSelectedSeatsCount}
-            ticketPrice={selectedMovie.price}
+            ticketPrice={selectedMovie?.price}
             currentSeatCount={selectedSeatsCount}
             setTotalPrice={setTotalPrice}
             setSelectedSeats={setSelectedSeats}
@@ -227,7 +234,7 @@ function App() {
             row="f"
             rowBookings={bookingsForSelectedMovie['f'] ?? []}
             setSelectedSeatsCount={setSelectedSeatsCount}
-            ticketPrice={selectedMovie.price}
+            ticketPrice={selectedMovie?.price}
             currentSeatCount={selectedSeatsCount}
             setTotalPrice={setTotalPrice}
             setSelectedSeats={setSelectedSeats}
@@ -257,7 +264,7 @@ function App() {
         <h2>Thank you</h2>
         <p>
           Congratulations you successfully booked ticket(s) for:
-          <span> {selectedMovie.name}</span>
+          <span> {selectedMovie?.name}</span>
         </p>
         <button className="btn" onClick={backToBooking}>
           Back to booking
@@ -268,13 +275,21 @@ function App() {
 
   // ADMIN PAGE
   const handleDeleteMovie = async (movieId: string) => {
-    //Delete from Movie data base
+    //Delete from Movie useState and database
     setMovies((currentMovies) =>
       currentMovies.filter((movie) => movie.id != movieId),
     );
     const isMovieDeleted = await deleteMovie(movieId);
 
-    //Delete from Bookings data base
+    if (selectedMovie?.id === movieId) {
+      const newSelectedMovie = movies.find((movie) => {
+        movie.id != movieId;
+      });
+
+      setSelectedMovie(movies.find((movie) => movie.id != movieId));
+    }
+
+    //Delete from Bookings useState and database
     setBookings((currentBookings) =>
       currentBookings.filter((booking) => booking.id != movieId),
     );
