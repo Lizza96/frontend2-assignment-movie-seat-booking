@@ -346,8 +346,8 @@ function App() {
     }
 
     //update useState
-    setMovies(
-      movies.map((movie) => {
+    setMovies((prevMovies) =>
+      prevMovies.map((movie) => {
         if (movie.id === movieId) {
           return {
             ...movie,
@@ -357,6 +357,10 @@ function App() {
         return movie;
       }),
     );
+
+    if (movieId == selectedMovie?.id) {
+      setSelectedMovie({ ...selectedMovie, ...useStateData });
+    }
 
     return hasSavedToDatabase;
   };
