@@ -1,0 +1,193 @@
+{
+  "movies": [
+    {
+      "id": "1",
+      "title": "The Lion King",
+      "year": "2019",
+      "price": 100
+    },
+    {
+      "id": "2",
+      "title": "Mowgli: Legend of the Jungle",
+      "year": "2018",
+      "price": 40
+    },
+    {
+      "id": "3",
+      "title": "Doctor Strange",
+      "year": "2016",
+      "price": 120
+    },
+    {
+      "id": "4",
+      "title": "John Wick",
+      "year": "2014",
+      "price": 60
+    },
+    {
+      "id": "5",
+      "title": "Fast and furious 6",
+      "year": "2013",
+      "price": 100
+    },
+    {
+      "id": "6",
+      "title": "The mummy returns",
+      "year": "2001",
+      "price": 50
+    },
+    {
+      "id": "7",
+      "title": "Jumanji: Welcome to the Jungle",
+      "year": "2017",
+      "price": 70
+    },
+    {
+      "id": "8",
+      "title": "Rampage",
+      "year": "2018",
+      "price": 40
+    }
+  ],
+  "bookings": [
+    {
+      "id": "1",
+      "a": [],
+      "b": [
+        {
+          "seat": 4,
+          "customer": {
+            "name": "John Doe",
+            "phone": "070 123 45 67"
+          }
+        },
+        {
+          "seat": 5,
+          "customer": {
+            "name": "John Doe",
+            "phone": "070 123 45 67"
+          }
+        }
+      ],
+      "c": [
+        {
+          "seat": 7,
+          "customer": {
+            "name": "Jane Smith",
+            "phone": "070 123 45 66"
+          }
+        },
+        {
+          "seat": 8,
+          "customer": {
+            "name": "Jane Smith",
+            "phone": "070 123 45 66"
+          }
+        }
+      ],
+      "d": [],
+      "e": [
+        {
+          "seat": 4,
+          "customer": {
+            "name": "Jane Smith2",
+            "phone": "070 123 45 66"
+          }
+        },
+        {
+          "seat": 5,
+          "customer": {
+            "name": "Jane Smith2",
+            "phone": "070 123 45 66"
+          }
+        }
+      ],
+      "f": [
+        {
+          "seat": 5,
+          "customer": {
+            "name": "Jane Smith3",
+            "phone": "070 123 45 65"
+          }
+        },
+        {
+          "seat": 6,
+          "customer": {
+            "name": "Jane Smith3",
+            "phone": "070 123 45 65"
+          }
+        },
+        {
+          "seat": 7,
+          "customer": {
+            "name": "Jane Smith3",
+            "phone": "070 123 45 65"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    },
+    {
+      "id": "3",
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    },
+    {
+      "id": "4",
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    },
+    {
+      "id": "5",
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    },
+    {
+      "id": "6",
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    },
+    {
+      "id": "7",
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    },
+    {
+      "id": "8",
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "e": [],
+      "f": []
+    }
+  ]
+}
