@@ -16,7 +16,7 @@ export async function loadBookings(): Promise<SeatBookings> {
 export async function saveBookingData(
   movieId: string,
   data: Record<Row, CustomerBooking[]>,
-): Promise<Boolean> {
+): Promise<boolean> {
   try {
     const response = await fetch(`${dbUrl}/${movieId}`, {
       method: 'PATCH',
@@ -33,7 +33,7 @@ export async function saveBookingData(
   }
 }
 
-export async function deleteBooking(id: string): Promise<Boolean> {
+export async function deleteBooking(id: string): Promise<boolean> {
   const response = await fetch(`${dbUrl}/${id}`, {
     method: 'DELETE',
     headers: {

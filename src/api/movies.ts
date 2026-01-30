@@ -16,7 +16,7 @@ export async function loadMovies(): Promise<Array<Movie>> {
   return movies;
 }
 
-export async function deleteMovie(id: string): Promise<Boolean> {
+export async function deleteMovie(id: string): Promise<boolean> {
   const response = await fetch(`${dbUrl}/${id}`, {
     method: 'DELETE',
     headers: {
@@ -30,7 +30,7 @@ export async function deleteMovie(id: string): Promise<Boolean> {
 export async function updateMovie(
   id: string,
   updatedData: Partial<MovieEntity>,
-): Promise<Boolean> {
+): Promise<boolean> {
   const response = await fetch(`${dbUrl}/${id}`, {
     method: 'PATCH',
     headers: {

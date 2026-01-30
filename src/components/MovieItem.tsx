@@ -8,8 +8,8 @@ type MovieItemProps = {
   onSaveEditMovie: (
     movieId: string,
     updatedData: Partial<MovieEntity>,
-  ) => Promise<Boolean>;
-  onDeleteMovie: (movieId: string) => Promise<Boolean>;
+  ) => Promise<boolean>;
+  onDeleteMovie: (movieId: string) => Promise<boolean>;
 };
 
 export const MovieItem = ({

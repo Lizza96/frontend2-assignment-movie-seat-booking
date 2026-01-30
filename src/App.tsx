@@ -127,8 +127,7 @@ function App() {
 
     const inputPhone = formData.get('phone') as string;
 
-    const phoneRegex =
-      /^(?:(?:\+|00)46|0)?7(?:[ \-]?[0-9]{3}){2}[ \-]?[0-9]{2}$/;
+    const phoneRegex = /^(?:(?:\+|00)46|0)?7(?:[ -]?[0-9]{3}){2}[ -]?[0-9]{2}$/;
 
     if (inputPhone && !phoneRegex.test(inputPhone)) {
       validInput = false;
@@ -144,7 +143,7 @@ function App() {
 
     result.successMessage = 'Successfully booked the tickets!';
 
-    let newBookingData = {} as Record<Row, CustomerBooking[]>;
+    const newBookingData = {} as Record<Row, CustomerBooking[]>;
 
     for (const row of Object.keys(selectedSeats) as Row[]) {
       if (
@@ -335,7 +334,7 @@ function App() {
 
     //filter out 'title' key and replace with 'name' key to match useState keys instead of data base keys
     if (updatedData.title) {
-      const { title, ...filteredData } = updatedData;
+      const { title: _, ...filteredData } = updatedData;
       useStateData = {
         ...filteredData,
         name: updatedData.title,
